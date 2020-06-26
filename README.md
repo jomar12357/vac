@@ -10,9 +10,42 @@
 [![Escríbeme en WhatsApp](https://img.shields.io/badge/Escríbeme-WhathApp-green)](https://wa.me/51924741703)
 [![Mi Web](https://img.shields.io/badge/Mi_Página-Web-blueviolet)](https://frankmorenoalburqueque.com)
 
-### Metodología de Programación VAC-PHP:
+## Metodología de Programación VAC-PHP:
 
-## (VAC) Vista, Acciones, Clases.
+### ¿Por qué VACa?
+
+<ul>
+	<li>
+		VAC solo es una abreviatura de:
+		<ul>
+			<li>V => Vistas</li>
+			<li>A => Acciones</li>
+			<li>C => Clases</li>
+		</ul>
+	</li>
+</ul>
+
+### ¿Por qué usarla?
+
+<ul>
+	<li>Por que es muy fácil de entender, desarrollar e implementar.</li>
+	<li>Por que se puede reutilizar el código.</li>
+	<li>Por que no demora mucho tiempo en cargar.</li>
+	<li>Por que no haces trabajos en la vista. Solo muestras la información.</li>
+	<li>Por que es práctica.</li>
+	<li>Por que aún puede mejorar muchísimo más.</li>
+</ul>
+
+### VAC utiliza:
+
+<ul>
+	<li>Constantes.</li>
+	<li>Sessiones.</li>
+	<li>Variables.</li>
+	<li>Funciones.</li>
+	<li>Clases.</li>
+	<li>Instanciamientos de Clases.</li>
+</ul>
 
 ### Estructura:
 
