@@ -12,13 +12,44 @@
 
 ### Metodología de Programación VAC-PHP:
 
-**(VAC) Vista, Acciones, Clases.
+## (VAC) Vista, Acciones, Clases.
 
 ### Estructura:
 
 <ul>
-	<li></li>
-</ul>	
+	<li>
+		dominio.ejm/ (Carpeta donde de alojará todo el proyecto)
+		<ul>
+			<li>
+				ACTIONJF/ (Nombre de Carpeta de Acciones)
+				<ul>
+					<li>cursos.php (Acción: De la Vista Cursos)</li>
+				</ul>
+			</li>
+			<li>
+				MORENOCL/ (Nombre de Carpeta de Clases)
+				<ul>
+					<li>db.php (Clase: DataBase para la cadena de conexión)</li>
+					<li>cursos.php (Clase: Cursos Para nuestro ejemplo Cursos)</li>
+					<li>function.php (Funciones para llamar en Clases que ejecutan sentencias dentro de un FOR o WHILE)</li>
+				</ul>
+			</li>
+			<li>0code.php (Archivo de configuración. Requerido en todas las vistas)</li>
+			<li>1styles.php (Archivo que contendrá los <link /> a estilos CSS . Requerido en todas las vistas)</li>
+			<li>2java.php (Archivo que contendrá los <scritp></scritp> a los JavaScript . Requerido en todas las vistas)</li>
+			<li>constant.php (Archivo donde definiremos nuestras constantes . Requerido en todas las vistas)</li>
+			<li>
+				cursos/ (Carpeta de nuestra Vista: Curso)
+				<ul>
+					<li>index.php (Vista: Curso)</li>
+					<li>detalle.php (vista: Curso Detalle)</li>
+				</ul>
+			</li>
+			<li>script.sql (Archivo que contendrá las estructuras de nuestras tablas de la base de datos)</li>
+		</ul>
+	</li>
+</ul>
+	
 
 <p align="center">
 	<label>Moreno Alburqueque Frank Martin</label><br>
