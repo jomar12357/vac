@@ -12,7 +12,7 @@
 
 ## Metodología de Programación VAC-PHP:
 
-### ¿Por qué VACa?
+### ¿Por qué VAC?
 
 <ul>
 	<li>
