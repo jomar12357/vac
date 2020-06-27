@@ -16,4 +16,22 @@
 
 		return $inf;
 	}
+	if (isset($_POST['guardar'])) {
+		session_start();
+		require_once($rut.'constant.php');
+
+		require_once($rut.DIRMOR.$db.'.php');
+		require_once($rut.DIRMOR.$cl1.'.php');
+		$_db = new $db();
+		$_cl1 = new $cl1();
+
+		$nombre = $_POST['nombre'];
+		$descrip = $_POST['descrip'];
+		$created_at = date('Y-m-d H:i:s');
+
+		$_SESSION['stat'] = $_cl1->add($_db->conect01(),$nombre,$descrip,$created_at);
+
+		header("Location: ".URL.$dir1);
+		exit();
+	}
 ?>

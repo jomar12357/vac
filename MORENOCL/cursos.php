@@ -47,5 +47,18 @@
 			mysqli_close($c1);
 			return $inf;
 		}
+		function add($c1,$nombre,$descrip,$created_at){
+			$inf=null;$er=1;
+			$sql="INSERT INTO ".$this->table." (nombre, descrip, created_at) VALUES ('".$nombre."', '".$descrip."', '".$created_at."');";
+			$res = mysqli_query($c1,$sql) OR $_SESSION['Mysqli_Error'] = (mysqli_error($c1));
+			if ($res) {
+				$inf='add';
+			}else{
+				$inf='noadd';
+			}
+
+			mysqli_close($c1);
+			return $inf;
+		}
 	}
 ?>
