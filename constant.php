@@ -4,4 +4,5 @@
 	define('DIRACT', 'ACTIONJF/');
 	define('URL', 'http://localhost:81/vac/');
 	define('ACTI', URL.DIRACT);
+	define('PLUG', URL.'plugins/');
 ?>
