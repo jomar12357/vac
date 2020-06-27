@@ -26,10 +26,10 @@
 	<div class="container">
 		<div class="row pb-5">
 			<?php if (isset($_SESSION['Mysqli_Error'])): ?>
-				<div class="alert alert-danger"><?= $_SESSION['Mysqli_Error']; ?></div>
+				<div class="col-sm-12 text-center alert alert-danger"><?= $_SESSION['Mysqli_Error']; ?></div>
 			<?php endif ?>
 			<?php if (isset($_SESSION['stat'])): ?>
-				<div class="alert alert-secondary"><?= $_SESSION['stat']; ?></div>
+				<div class="col-sm-12 text-center alert alert-secondary"><?= $_SESSION['stat']; ?></div>
 			<?php endif ?>
 		</div>
 

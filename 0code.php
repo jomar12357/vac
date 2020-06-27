@@ -3,7 +3,5 @@
 
 	$pid=0;
 
-	if (isset($_REQUEST['user'])) {
-		$pid = base64_decode($_REQUEST['user']);
-	}
+	if (isset($_REQUEST['p'])) { $pid = base64_decode($_REQUEST['p']); }
 ?>
