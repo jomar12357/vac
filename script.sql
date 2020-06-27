@@ -19,4 +19,5 @@
 		('Arte'),
 		('Ciencia y Ambiente')
 	;
+	SELECT * FROM cursos WHERE status=1;
 /*-----------------------tabla-cursos-----------------------*/

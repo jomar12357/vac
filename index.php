@@ -1,3 +1,7 @@
+<?php
+	session_start();
+	$rut='./';
+?>
 <!DOCTYPE html>
 <html>
 <head>
