@@ -59,6 +59,7 @@
 	</div>
 
 	<?php require_once($rut.'2java.php'); ?>
+
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
 	    <div class="modal-content">
@@ -82,6 +83,44 @@
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
 		        <button type="submit" name="guardar" class="btn btn-primary">Guardar <?= substr($pagina, 0, -1); ?></button>
+		      </div>
+	      </form>
+	    </div>
+	  </div>
+	</div>
+
+    <script>
+        function drop(datos){
+            var infor=datos.split("||");
+            /*'MQ==||Comunicación||'
+            $infor[0] = 'MQ=='
+            $infor[1] = 'Comunicación'
+            $infor[2] = ''*/
+
+            $('#dropid').val(infor[0]);
+            $('#nombre_curso').html(infor[1]);
+        }
+    </script>
+
+	<div class="modal fade" id="drop" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <form method="POST" action="<?= ACTI.$direc; ?>">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">Eliminar <?= substr($pagina, 0, -1); ?></h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		          <div class="form-group">
+		          	<p>¿Está seguro de <b>Eliminar el Registro: <em><label class="col-form-label" id="nombre_curso"></label></em></b>?</p>
+		          </div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+		        <input type="hidden" name="pid" id="dropid">
+		        <button type="submit" name="eliminar" class="btn btn-primary">Borrar el <?= substr($pagina, 0, -1); ?></button>
 		      </div>
 	      </form>
 	    </div>

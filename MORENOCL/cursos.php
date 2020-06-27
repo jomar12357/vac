@@ -5,7 +5,7 @@
 	class cursos
 	{
 		private $table ='cursos';
-		private $action='detalle.php?p=';
+		private $action='cursos.php?met=';
 		private $action1='cursos/detalle.php?p=';
 
 		function listar($c1){
@@ -20,7 +20,7 @@
 				$inf.='</tr>';
 			$inf.='</thead>';
 			$inf.='<tbody>';
-				$sql = "SELECT * FROM ".$this->table." WHERE status=1;";
+				$sql = "SELECT * FROM ".$this->table." WHERE status<>2;";
 				$res = mysqli_query($c1,$sql) OR $_SESSION['Mysqli_Error'] = (mysqli_error($c1));
 				if ($res) {
 					if ($res->num_rows > 0) {
@@ -31,9 +31,27 @@
 								$inf.='<td>'.$row['descrip'].'</td>';
 								$inf.='<td>'.$row['created_at'].'</td>';
 								$inf.='<td>';
-									$inf.='<a href="'.URL.$this->action1.base64_encode($row['id']).'" class="btn btn-outline-warning">';
+									$inf.='<a href="'.URL.$this->action1.base64_encode($row['id']).'" class="btn btn-outline-warning" title="Editar">';
 										$inf.='<i class="fa fa-edit"></i>';
 									$inf.='</a>';
+									switch ($row['status']) {
+										case 0:
+											$inf.='<a href="'.ACTI.$this->action.'acti&p='.base64_encode($row['id']).'" class="btn btn-outline-warning" title="Clic para Activar">';
+												$inf.='<i class="fa fa-ban"></i>';
+											$inf.='</a>';
+										break;
+										case 1:
+											$inf.='<a href="'.ACTI.$this->action.'desact&p='.base64_encode($row['id']).'" class="btn btn-outline-success" title="Clic para Desactivar">';
+												$inf.='<i class="fa fa-check"></i>';
+											$inf.='</a>';
+										break;
+										default:
+											$inf.='<a href="'.ACTI.$this->action.'acti&p='.base64_encode($row['id']).'" class="btn btn-outline-danger" title="Clic para Activar">';
+												$inf.='<i class="fa fa-times"></i>';
+											$inf.='</a>';
+										break;
+									}
+									$inf.='<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#drop" onclick="drop('."'".base64_encode($row['id'])."||".$row['nombre']."||'".');"><i class="fa fa-trash"></i></button>';
 								$inf.='</td>';
 							$inf.='</tr>';
 
@@ -94,6 +112,45 @@
 				$inf='edit';
 			}else{
 				$inf='noedit';
+			}
+
+			mysqli_close($c1);
+			return $inf;
+		}
+		function acti($c1,$pid,$updated_at){
+			$inf=null;$er=1;
+			$sql="UPDATE ".$this->table." SET updated_at='".$updated_at."', status=1 WHERE id=".$pid." ;";
+			$res = mysqli_query($c1,$sql) OR $_SESSION['Mysqli_Error'] = (mysqli_error($c1));
+			if ($res) {
+				$inf='acti';
+			}else{
+				$inf='noacti';
+			}
+
+			mysqli_close($c1);
+			return $inf;
+		}
+		function desact($c1,$pid,$updated_at){
+			$inf=null;$er=1;
+			$sql="UPDATE ".$this->table." SET updated_at='".$updated_at."', status=0 WHERE id=".$pid." ;";
+			$res = mysqli_query($c1,$sql) OR $_SESSION['Mysqli_Error'] = (mysqli_error($c1));
+			if ($res) {
+				$inf='desact';
+			}else{
+				$inf='nodesact';
+			}
+
+			mysqli_close($c1);
+			return $inf;
+		}
+		function drop($c1,$pid,$drop_at){
+			$inf=null;$er=1;
+			$sql="UPDATE ".$this->table." SET drop_at='".$drop_at."', status=2 WHERE id=".$pid." ;";
+			$res = mysqli_query($c1,$sql) OR $_SESSION['Mysqli_Error'] = (mysqli_error($c1));
+			if ($res) {
+				$inf='drop';
+			}else{
+				$inf='nodrop';
 			}
 
 			mysqli_close($c1);
