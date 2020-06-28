@@ -100,7 +100,7 @@
 		$pid = base64_decode($_POST['pid']);
 		$drop_at = date('Y-m-d H:i:s');
 
-		$_SESSION['stat'] = $_cl1->drop($_db->conect01(),$pid,$descrip,$drop_at);
+		$_SESSION['stat'] = $_cl1->drop($_db->conect01(),$pid,$drop_at);
 
 		header("Location: ".URL.$dir1);
 		exit();

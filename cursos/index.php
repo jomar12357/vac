@@ -92,10 +92,13 @@
     <script>
         function drop(datos){
             var infor=datos.split("||");
-            /*'MQ==||Comunicación||'
-            $infor[0] = 'MQ=='
-            $infor[1] = 'Comunicación'
-            $infor[2] = ''*/
+            /*
+            Divide la cadena a array por este caracter: ( || )
+            	'MQ==||Comunicación||'			cadena que recibe y la divide dentro de un array de la siguiente manera:
+            	$infor[0] = 'MQ=='				valor 0
+            	$infor[1] = 'Comunicación'		valor 1
+            	$infor[2] = ''					valor 2
+            */
 
             $('#dropid').val(infor[0]);
             $('#nombre_curso').html(infor[1]);
