@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	$rut='../';
+	$rut2='../../';
 	$pagina='Detalle del Curso';
 	$padre='Curso';
 	$direc='cursos.php';
@@ -16,8 +17,8 @@
 	<?php
 		$inf=null;
 
-		require_once($rut.DIRACT.$direc);
-		$inf = detalle($rut,$pid);
+		require_once($rut2.DIRACT.$direc);
+		$inf = detalle($rut2,$pid);
 
 		if(isset($_SESSION['nombre'])){ $nombre = $_SESSION['nombre']; unset($_SESSION['nombre']); }else{ $nombre=null; }
 		if(isset($_SESSION['descrip'])){ $descrip = $_SESSION['descrip']; unset($_SESSION['descrip']); }else{ $descrip=null; }

@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	$rut='../';
+	$rut2='../../';
 	$pagina='Cursos';
 	$direc='cursos.php';
 	require_once($rut.'0code.php');
@@ -15,8 +16,8 @@
 	<?php
 		$inf=null;
 
-		require_once($rut.DIRACT.$direc);
-		$inf = index($rut);
+		require_once($rut2.DIRACT.$direc);
+		$inf = index($rut2);
 
 		require_once($rut.'0mens.php');
 	?>

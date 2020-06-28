@@ -67,18 +67,23 @@
 					<li>function.php (Funciones para llamar en Clases que ejecutan sentencias dentro de un FOR o WHILE)</li>
 				</ul>
 			</li>
-			<li>0code.php (Archivo de configuración. Requerido en todas las vistas)</li>
-			<li>0mens.php (Archivo de Mensajes. Este archivo se configurarán los mensajes que se mostrarán cuando se complete un CRUD)</li>
-			<li>0error.php (Archivo donde se muestra los mensajes de alerts en las vistas. Requerido en todas las vistas)</li>
-			<li>1styles.php (Archivo que contendrá los <link /> a estilos CSS . Requerido en todas las vistas)</li>
-			<li>2java.php (Archivo que contendrá los <scritp></scritp> a los JavaScript . Requerido en todas las vistas)</li>
-			<li>3toastr.php (Archivo que contendrá el muestreo de mesajes . Requerido en todas las vistas)</li>
-			<li>constant.php (Archivo donde definiremos nuestras constantes . Requerido en todas las vistas)</li>
 			<li>
-				cursos/ (Carpeta de nuestra Vista: Curso)
+				sistem/ Carpeta del sistema administrativo
 				<ul>
-					<li>index.php (Vista: Curso)</li>
-					<li>detalle.php (vista: Curso Detalle)</li>
+					<li>0code.php (Archivo de configuración. Requerido en todas las vistas)</li>
+					<li>0mens.php (Archivo de Mensajes. Este archivo se configurarán los mensajes que se mostrarán cuando se complete un CRUD)</li>
+					<li>0error.php (Archivo donde se muestra los mensajes de alerts en las vistas. Requerido en todas las vistas)</li>
+					<li>1styles.php (Archivo que contendrá los <link /> a estilos CSS . Requerido en todas las vistas)</li>
+					<li>2java.php (Archivo que contendrá los <scritp></scritp> a los JavaScript . Requerido en todas las vistas)</li>
+					<li>3toastr.php (Archivo que contendrá el muestreo de mesajes . Requerido en todas las vistas)</li>
+					<li>constant.php (Archivo donde definiremos nuestras constantes . Requerido en todas las vistas)</li>
+					<li>
+						cursos/ (Carpeta de nuestra Vista: Curso)
+						<ul>
+							<li>index.php (Vista: Curso)</li>
+							<li>detalle.php (vista: Curso Detalle)</li>
+						</ul>
+					</li>
 				</ul>
 			</li>
 			<li>script.sql (Archivo que contendrá las estructuras de nuestras tablas de la base de datos)</li>
