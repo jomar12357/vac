@@ -22,19 +22,14 @@
 		if(isset($_SESSION['nombre'])){ $nombre = $_SESSION['nombre']; unset($_SESSION['nombre']); }else{ $nombre=null; }
 		if(isset($_SESSION['descrip'])){ $descrip = $_SESSION['descrip']; unset($_SESSION['descrip']); }else{ $descrip=null; }
 
-		//require_once($rut.'0mens.php');
+		require_once($rut.'0mens.php');
 	?>
 </head>
 <body>
 
 	<div class="container">
 		<div class="row pb-5">
-			<?php if (isset($_SESSION['Mysqli_Error'])): ?>
-				<div class="col-sm-12 text-center alert alert-danger"><?= $_SESSION['Mysqli_Error']; ?></div>
-			<?php endif ?>
-			<?php if (isset($_SESSION['stat'])): ?>
-				<div class="col-sm-12 text-center alert alert-secondary"><?= $_SESSION['stat']; ?></div>
-			<?php endif ?>
+			<br>
 		</div>
 
 		<hr>
@@ -47,6 +42,8 @@
 			<div class="col-sm-3 text-right">
 			</div>
 		</div>
+		
+		<?php include_once($rut.'0error.php'); ?>
 		
 		<hr>
 
@@ -81,6 +78,7 @@
 	</div>
 
 	<?php require_once($rut.'2java.php'); ?>
+	<?php require_once($rut.'3toastr.php'); ?>
 </body>
 </html>
 <?php

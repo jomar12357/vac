@@ -20,7 +20,7 @@
 				$inf.='</tr>';
 			$inf.='</thead>';
 			$inf.='<tbody>';
-				$sql = "SELECT * FROM ".$this->table." WHERE status<>2;";
+				$sql = "SELECT * FROM ".$this->table." WHERE status <> 2;";
 				$res = mysqli_query($c1,$sql) OR $_SESSION['Mysqli_Error'] = (mysqli_error($c1));
 				if ($res) {
 					if ($res->num_rows > 0) {
