@@ -16,14 +16,14 @@
 
 		return $inf;
 	}
-	function exportar($rut){
+	function exportar($rut,$tip){
 		global $db, $cl1;
 		require_once($rut.DIRMOR.$db.'.php');
 		require_once($rut.DIRMOR.$cl1.'.php');
 		$_db = new $db();
 		$_cl1 = new $cl1();
 
-		$inf = $_cl1->exportar($_db->conect01());
+		$inf = $_cl1->exportar($_db->conect01(),$tip);
 
 		return $inf;
 	}

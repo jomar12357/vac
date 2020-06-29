@@ -7,7 +7,7 @@
 	$inf=null;
 
 	require($rut.DIRACT.$direc);
-	$inf = exportar($rut);
+	$inf = exportar($rut,1);
 
 	header('Content-language: es');
 	header("Content-type: application/vnd.ms-excel");

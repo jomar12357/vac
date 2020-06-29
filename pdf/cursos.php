@@ -11,7 +11,7 @@
 	use Dompdf\Dompdf;
 
 		require_once($rut.DIRACT.$direc);
-		$inf = exportar($rut);
+		$inf = exportar($rut,2);
 
 		$paper_size=array(0,0,1080,720);
 		//$paper_size='"letter","landscape"';

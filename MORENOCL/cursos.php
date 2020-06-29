@@ -77,7 +77,7 @@
 			mysqli_close($c1);
 			return $inf;
 		}
-		function exportar($c1){
+		function exportar($c1,$tip){
 			$inf=null;$n=1;$cant=8;
 			$inf.='<thead>';
 				$inf.='<tr>';
@@ -119,7 +119,11 @@
 								$inf.='</td>';
 								$inf.='<td>';
 									if (strlen($row['imagen']) > 5) {
-										$inf.='<img style="max-width: 100px; max-height: 100px;" src="'.IMG.'cursos/'.$row['imagen'].'" />';
+										if ($tip==1) {
+											$inf.='<img style="max-width: 100px; max-height: 100px;" src="'.IMG.'cursos/'.$row['imagen'].'" />';
+										}else{
+											$inf.='<img style="max-width: 100px; max-height: 100px;" src="'.__DIRIMG__.'cursos/'.$row['imagen'].'" />';
+										}
 									}else{
 										$inf.='No imagen';
 									}
