@@ -32,7 +32,18 @@
 		<hr>
 		
 		<div class="row">
-			<div class="col-sm-3"></div>
+			<div class="col-sm-3">
+				<div class="dropdown">
+				  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    Acciones
+				  </button>
+				  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				    <a class="dropdown-item" href="<?= XCEL.$direc; ?>">Exportar Excel <i class="fa fa-file-excel-o"></i></a>
+				    <!--<a class="dropdown-item" href="#">Another action</a>
+				    <a class="dropdown-item" href="#">Something else here</a>-->
+				  </div>
+				</div>
+			</div>
 			<div class="col-sm-6 text-center">
 				<h2>Lista de <?= $pagina; ?></h2>
 			</div>
@@ -46,13 +57,11 @@
 		<hr>
 
 		<div class="row">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-10">
+			<div class="col-sm-12">
 				<table class="table table-dark">
 					<?php echo $inf; $inf=null; ?>
 				</table>
 			</div>
-			<div class="col-sm-1"></div>
 		</div>
 	</div>
 
@@ -62,7 +71,7 @@
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
 	    <div class="modal-content">
-	      <form method="POST" action="<?= ACTI.$direc; ?>">
+	      <form method="POST" enctype="multipart/form-data" action="<?= ACTI.$direc; ?>">
 		      <div class="modal-header">
 		        <h5 class="modal-title" id="exampleModalLabel">Nuevo <?= substr($pagina, 0, -1); ?></h5>
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -78,6 +87,13 @@
 		            <label for="message-text" class="col-form-label">Descripción:</label>
 		            <textarea class="form-control ckeditor" id="ckeditor" name="descrip"></textarea>
 		          </div>
+				  <div class="form-group">
+					<label for="recipient-name" class="col-form-label">Foto:</label>
+					<div class="custom-file">
+					  <input type="file" class="custom-file-input" id="customFile" name="imagen">
+					  <label class="custom-file-label" for="customFile">Seleccione foto</label>
+					</div>
+				  </div>
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

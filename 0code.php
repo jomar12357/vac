@@ -1,5 +1,5 @@
 <?php
-	require_once($rut2.'constant.php');
+	require_once($rut.'constant.php');
 
 	$pid=0;
 

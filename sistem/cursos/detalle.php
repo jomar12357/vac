@@ -22,6 +22,7 @@
 
 		if(isset($_SESSION['nombre'])){ $nombre = $_SESSION['nombre']; unset($_SESSION['nombre']); }else{ $nombre=null; }
 		if(isset($_SESSION['descrip'])){ $descrip = $_SESSION['descrip']; unset($_SESSION['descrip']); }else{ $descrip=null; }
+		if(isset($_SESSION['imagen'])){ $imagen = $_SESSION['imagen']; unset($_SESSION['imagen']); }else{ $imagen=null; }
 
 		require_once($rut.'0mens.php');
 	?>
@@ -36,7 +37,9 @@
 		<hr>
 		
 		<div class="row">
-			<div class="col-sm-3"></div>
+			<div class="col-sm-3 text-left">
+				<a href="./" class="btn btn-secondary">Regresar</a>
+			</div>
 			<div class="col-sm-6 text-center">
 				<h2><?= $pagina; ?></h2>
 			</div>
@@ -51,7 +54,7 @@
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
-				<form class="col-sm-12" method="post" action="<?= ACTI.$direc; ?>">
+				<form class="col-sm-12" method="post" enctype="multipart/form-data" action="<?= ACTI.$direc; ?>">
 					<div class="card">
 					  <div class="card-header">
 					    Editar el <?= $padre; ?>
@@ -65,6 +68,20 @@
 				            <label for="message-text" class="col-form-label">Descripción:</label>
 				            <textarea class="form-control ckeditor" id="ckeditor" name="descrip"><?= $descrip; ?></textarea>
 				          </div>
+				          <div class="form-group">
+				          	<input type="hidden" name="imagen_ant" value="<?= $imagen; ?>">
+				          	<?php if (strlen($imagen) > 5): ?>
+				          		<img  style="max-width: 350px; max-height: 400px;" src="<?= IMG; ?>cursos/<?= $imagen; ?>">
+				          	<?php endif ?>				          	
+				          </div>				          
+						  <div class="form-group">
+							<label for="recipient-name" class="col-form-label">Foto:</label>
+							<div class="custom-file">
+							  <input type="file" class="custom-file-input" id="customFile" name="imagen">
+							  <label class="custom-file-label" for="customFile">Seleccione foto para reemplazar la antigua</label>
+							</div>
+						  </div>
+						  <hr>
 				          <div class="form-group">
 						    <a href="./" class="btn btn-secondary">Regresar</a>
 						    <input type="hidden" name="pid" value="<?= base64_encode($pid); ?>">

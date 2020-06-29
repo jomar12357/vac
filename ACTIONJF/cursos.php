@@ -16,6 +16,17 @@
 
 		return $inf;
 	}
+	function exportar($rut){
+		global $db, $cl1;
+		require_once($rut.DIRMOR.$db.'.php');
+		require_once($rut.DIRMOR.$cl1.'.php');
+		$_db = new $db();
+		$_cl1 = new $cl1();
+
+		$inf = $_cl1->exportar($_db->conect01());
+
+		return $inf;
+	}
 	function detalle($rut,$pid){
 		global $db, $cl1;
 		require_once($rut.DIRMOR.$db.'.php');
@@ -38,11 +49,23 @@
 
 		$nombre = $_POST['nombre'];
 		$descrip = $_POST['descrip'];
+		
+		if (is_uploaded_file($_FILES["imagen"]["tmp_name"])) {
+			$nombfile=$_FILES["imagen"]["name"];
+			$taman=$_FILES["imagen"]["size"];
+			$type=$_FILES["imagen"]["type"];
+			$destino= __DIRIMG__."cursos/";
+			$imagen=date("YmdHis").$nombfile;
+			move_uploaded_file($_FILES["imagen"]["tmp_name"], $destino.$imagen);
+		}else{
+			$imagen='user.png';
+		}
+
 		$created_at = date('Y-m-d H:i:s');
 
-		$_SESSION['stat'] = $_cl1->add($_db->conect01(),$nombre,$descrip,$created_at);
+		$_SESSION['stat'] = $_cl1->add($_db->conect01(),$nombre,$descrip,$imagen,$created_at);
 
-		header("Location: ".URL.$dir1);
+		header("Location: ".SIST.$dir1);
 		exit();
 	}
 	if (isset($_POST['editar'])) {
@@ -57,11 +80,23 @@
 		$pid = base64_decode($_POST['pid']);
 		$nombre = $_POST['nombre'];
 		$descrip = $_POST['descrip'];
+
+		if (is_uploaded_file($_FILES["imagen"]["tmp_name"])) {
+			$nombfile=$_FILES["imagen"]["name"];
+			$taman=$_FILES["imagen"]["size"];
+			$type=$_FILES["imagen"]["type"];
+			$destino= __DIRIMG__."cursos/";
+			$imagen=date("YmdHis").$nombfile;
+			move_uploaded_file($_FILES["imagen"]["tmp_name"], $destino.$imagen);
+		}else{
+			$imagen=$_POST['imagen_ant'];
+		}
+
 		$updated_at = date('Y-m-d H:i:s');
 
-		$_SESSION['stat'] = $_cl1->edit($_db->conect01(),$pid,$nombre,$descrip,$updated_at);
+		$_SESSION['stat'] = $_cl1->edit($_db->conect01(),$pid,$nombre,$descrip,$imagen,$updated_at);
 
-		header("Location: ".URL.$dir2.base64_encode($pid));
+		header("Location: ".SIST.$dir2.base64_encode($pid));
 		exit();
 	}
 	if (isset($_REQUEST['met'])) {
@@ -85,7 +120,7 @@
 			break;
 		}
 
-		header("Location: ".URL.$dir1);
+		header("Location: ".SIST.$dir1);
 		exit();
 	}
 	if (isset($_POST['eliminar'])) {
@@ -102,7 +137,7 @@
 
 		$_SESSION['stat'] = $_cl1->drop($_db->conect01(),$pid,$drop_at);
 
-		header("Location: ".URL.$dir1);
+		header("Location: ".SIST.$dir1);
 		exit();
 	}
 ?>
