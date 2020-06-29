@@ -39,8 +39,8 @@
 				  </button>
 				  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 				    <a class="dropdown-item" href="<?= XCEL.$direc; ?>">Exportar Excel <i class="fa fa-file-excel-o"></i></a>
-				    <!--<a class="dropdown-item" href="#">Another action</a>
-				    <a class="dropdown-item" href="#">Something else here</a>-->
+				    <a class="dropdown-item" href="<?= PDFS.$direc; ?>">Exportar PDF <i class="fa fa-file-pdf-o"></i></a>
+				    <!--<a class="dropdown-item" href="#">Something else here</a>-->
 				  </div>
 				</div>
 			</div>

@@ -7,6 +7,7 @@
 	define('IMG', URL.'img/');
 	define('SIST', URL.'sistem/');
 	define('XCEL', URL.'excel/');
+	define('PDFS', URL.'pdf/');
 	define('ACTI', URL.DIRACT);
 	define('PLUG', URL.'plugins/');
 	define('FMMA', 'https://frankmorenoalburqueque.com/');
