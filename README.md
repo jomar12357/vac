@@ -127,7 +127,7 @@
 					<li>2java.php (Archivo que contendrá los <scritp></scritp> a los JavaScript . Requerido en todas las vistas)</li>
 					<li>3toastr.php (Archivo que contendrá el muestreo de mesajes . Requerido en todas las vistas)</li>
 				</ul>
-			</li>			
+			</li>
 			<li>0code.php (Archivo de configuración. Requerido en todas las vistas)</li>
 			<li>1styles.php (Archivo que contendrá los <link /> a estilos CSS . Requerido en todas las vistas)</li>
 			<li>2nav.php (Archivo que contendrá la cabecera de la web. Requerido en todas las vistas)</li>
