@@ -10,3 +10,6 @@
 
 	<!-- Main Stylesheets -->
 	<link rel="stylesheet" href="<?= URL; ?>css/style.css"/>
+	
+	<link rel="stylesheet" href="<?= PLUG; ?>toastr/toastr.min.css">
+	<script type="text/javascript" src="<?= PLUG; ?>ckeditor/ckeditor.js"></script>

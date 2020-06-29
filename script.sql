@@ -23,4 +23,21 @@
 		('Ciencia y Ambiente')
 	;
 	SELECT * FROM cursos WHERE status=1;
+/*-----------------------tabla-contacto---------------------*/
+	CREATE TABLE contacto(
+		id INT PRIMARY KEY AUTO_INCREMENT,
+		nombre VARCHAR(250) NULL DEFAULT NULL,
+		correo VARCHAR(350) NULL DEFAULT NULL,
+		telefono VARCHAR(15) NULL DEFAULT NULL,
+		mensaje TEXT NULL DEFAULT NULL,
+		respuesta TEXT NULL DEFAULT NULL,
+		created_at DATETIME NULL DEFAULT NULL,
+		id_created INT NULL DEFAULT '1',
+		updated_at DATETIME NULL DEFAULT NULL,
+		id_updated INT NULL DEFAULT '0',
+		drop_at DATETIME NULL DEFAULT NULL,
+		id_drop INT NULL DEFAULT '0',
+		status INT NULL DEFAULT '1'
+	);
+	SELECT * FROM contacto WHERE status=1;
 /*-----------------------tabla-cursos-----------------------*/

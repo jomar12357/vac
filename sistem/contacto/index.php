@@ -2,8 +2,8 @@
 	session_start();
 	$rut='../';
 	$rut2='../../';
-	$pagina='Cursos';
-	$direc='cursos.php';
+	$pagina='contacto';
+	$direc='contacto.php';
 	require_once($rut.'0code.php');
 ?>
 <!DOCTYPE html>
@@ -48,7 +48,6 @@
 				<h2>Lista de <?= $pagina; ?></h2>
 			</div>
 			<div class="col-sm-3 text-right">
-				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >Nuevo <?= substr($pagina, 0, -1); ?></button>
 			</div>
 		</div>
 
@@ -67,43 +66,6 @@
 
 	<?php require_once($rut.'2java.php'); ?>
 	<?php require_once($rut.'3toastr.php'); ?>
-
-	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	  <div class="modal-dialog">
-	    <div class="modal-content">
-	      <form method="POST" enctype="multipart/form-data" action="<?= ACTI.$direc; ?>">
-		      <div class="modal-header">
-		        <h5 class="modal-title" id="exampleModalLabel">Nuevo <?= substr($pagina, 0, -1); ?></h5>
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		          <span aria-hidden="true">&times;</span>
-		        </button>
-		      </div>
-		      <div class="modal-body">
-		          <div class="form-group">
-		            <label for="recipient-name" class="col-form-label">Nombre:</label>
-		            <input type="text" class="form-control" name="nombre" required="required">
-		          </div>
-		          <div class="form-group">
-		            <label for="message-text" class="col-form-label">Descripción:</label>
-		            <textarea class="form-control ckeditor" id="ckeditor" name="descrip"></textarea>
-		          </div>
-				  <div class="form-group">
-					<label for="recipient-name" class="col-form-label">Foto:</label>
-					<div class="custom-file">
-					  <input type="file" class="custom-file-input" id="customFile" name="imagen">
-					  <label class="custom-file-label" for="customFile">Seleccione foto</label>
-					</div>
-				  </div>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-		        <button type="submit" name="guardar" class="btn btn-primary">Guardar <?= substr($pagina, 0, -1); ?></button>
-		      </div>
-	      </form>
-	    </div>
-	  </div>
-	</div>
-
     <script>
         function drop(datos){
             var infor=datos.split("||");

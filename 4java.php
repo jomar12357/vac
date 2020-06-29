@@ -4,3 +4,5 @@
 	<script src="<?= URL; ?>js/slick.min.js"></script>
 	<script src="<?= URL; ?>js/fresco.min.js"></script>
 	<script src="<?= URL; ?>js/main.js"></script>
+	<!-- Toastr -->
+	<script src="<?= PLUG; ?>toastr/toastr.min.js"></script>

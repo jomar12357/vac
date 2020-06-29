@@ -32,7 +32,7 @@
 								<li><a href="<?= URL; ?>blog-single.html">Blog Single</a></li>
 							</ul>
 						</li>
-						<li><a href="<?= URL; ?>contact.html">Contact</a></li>
+						<li><a href="<?= URL; ?>contacto/">Contacto</a></li>
 					</ul>
 				</nav>
 			</div>
