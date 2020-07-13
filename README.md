@@ -138,6 +138,43 @@
 		</ul>
 	</li>
 </ul>
+
+### Primera Parte del Vídeo Tutorial:
+
+<p>
+	🌐 https://www.facebook.com/FrankMartinMA/videos/913114612508005/
+	
+	✔️ Metodología de Programación VAC-PHP
+	✔️ Listar Registros (Cursos)
+	✔️ Agregar Registro (Cursos)
+	✔️ Editar Registro (Cursos)
+	✔️ Activar Registro (Cursos)
+	✔️ Desactivar Registro (Cursos)
+	✔️ Eliminar Registro (Cursos)
+	✔️ Uso de Ckeditor
+</p>
+
+### Segunda Parte del video Tutorial:
+
+<p>
+	🌐 https://www.facebook.com/FrankMartinMA/videos/282640326425314/
+
+	✔️ Usar Template HTML
+	✔️ Convertir Template HTML a PHP
+	✔️ Reutilizar el código
+	✔️ Subir imagen al servidor
+	✔️ Crear vista para Página web Mostrando la información del ejemplo
+	✔️ Uso de Toastr
+	✔️ Exportar PDF
+	✔️ Exportar Excel
+	✔️ Uso de DataTable
+	✔️ Agregar Formulario de contacto
+	✔️ Listar Registros (Cursos)
+	✔️ Agregar seguimiento al formulario de contacto
+	✔️ Activar Registro (Contacto)
+	✔️ Desactivar Registro (Contacto)
+	✔️ Eliminar Registro (Contacto)
+</p>
 	
 
 <p align="center">
