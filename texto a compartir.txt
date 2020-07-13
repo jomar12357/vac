@@ -1,0 +1,113 @@
+-----------------------------------------------------------------------------
+Hola,
+
+Te comparto estos dós vídeos en los cuales explico todo lo que está detallado:
+
+1 Parte:
+🌐 https://www.facebook.com/FrankMartinMA/videos/913114612508005/
+Contiene:
+✔️ Metodología de Programación VAC-PHP
+✔️ Listar Registros (Cursos)
+✔️ Agregar Registro (Cursos)
+✔️ Editar Registro (Cursos)
+✔️ Activar Registro (Cursos)
+✔️ Desactivar Registro (Cursos)
+✔️ Eliminar Registro (Cursos)
+✔️ Uso de Ckeditor
+
+2 Parte:
+🌐 https://www.facebook.com/FrankMartinMA/videos/282640326425314/
+Contiene:
+✔️ Usar Template HTML
+✔️ Convertir Template HTML a PHP
+✔️ Reutilizar el código
+✔️ Subir imagen al servidor
+✔️ Crear vista para Página web Mostrando la información del ejemplo
+✔️ Uso de Toastr
+✔️ Exportar PDF
+✔️ Exportar Excel
+✔️ Uso de DataTable
+✔️ Agregar Formulario de contacto
+✔️ Listar Registros (Cursos)
+✔️ Agregar seguimiento al formulario de contacto
+✔️ Activar Registro (Contacto)
+✔️ Desactivar Registro (Contacto)
+✔️ Eliminar Registro (Contacto)
+
+Los archivos en mi canal de GIt:
+🌐 https://github.com/fmorenoadmin/vac
+
+Si te gustaron los vídeos, la explicación y la metodología.
+Porfavor compartelos y dejame tu LIKE a mi página :D
+
+👨‍💻 Moreno Alburqueque Frank M.
+👨‍🎓 WebMaster - Programador Web
+📩 admi@frankmorenoalburqueque.com
+🌐 https://frankmorenoalburqueque.com
+📲 https://m.me/FrankMartinMA
+📲 https://wa.me/51924741703
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Este vídeo contiene los siguentes temas:
+
+✔️ Metodología de Programación VAC-PHP
+✔️ Listar Registros (Cursos)
+✔️ Agregar Registro (Cursos)
+✔️ Editar Registro (Cursos)
+✔️ Activar Registro (Cursos)
+✔️ Desactivar Registro (Cursos)
+✔️ Eliminar Registro (Cursos)
+✔️ Uso de Ckeditor
+
+Los archivos en mi canal de GIt:
+🌐 https://github.com/fmorenoadmin/vac
+
+2 Parte:
+🌐 https://www.facebook.com/FrankMartinMA/videos/282640326425314/
+
+Si te gustaron los vídeos, la explicación y la metodología.
+Porfavor compartelos y dejame tu LIKE a mi página :D
+
+👨‍💻 Moreno Alburqueque Frank M.
+👨‍🎓 WebMaster - Programador Web
+📩 admi@frankmorenoalburqueque.com
+🌐 https://frankmorenoalburqueque.com
+📲 https://m.me/FrankMartinMA
+📲 https://wa.me/51924741703
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Este vídeo contiene los siguentes temas:
+
+✔️ Usar Template HTML
+✔️ Convertir Template HTML a PHP
+✔️ Reutilizar el código
+✔️ Subir imagen al servidor
+✔️ Crear vista para Página web Mostrando la información del ejemplo
+✔️ Uso de Toastr
+✔️ Exportar PDF
+✔️ Exportar Excel
+✔️ Uso de DataTable
+✔️ Agregar Formulario de contacto
+✔️ Listar Registros (Cursos)
+✔️ Agregar seguimiento al formulario de contacto
+✔️ Activar Registro (Contacto)
+✔️ Desactivar Registro (Contacto)
+✔️ Eliminar Registro (Contacto)
+
+Los archivos en mi canal de GIt:
+🌐 https://github.com/fmorenoadmin/vac
+
+1 Parte:
+🌐 https://www.facebook.com/FrankMartinMA/videos/913114612508005/
+
+Si te gustaron los vídeos, la explicación y la metodología.
+Porfavor compartelos y dejame tu LIKE a mi página :D
+
+👨‍💻 Moreno Alburqueque Frank M.
+👨‍🎓 WebMaster - Programador Web
+📩 admi@frankmorenoalburqueque.com
+🌐 https://frankmorenoalburqueque.com
+📲 https://m.me/FrankMartinMA
+📲 https://wa.me/51924741703
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
