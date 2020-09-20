@@ -7,7 +7,7 @@
 		nombre VARCHAR(250) NULL DEFAULT NULL,
 		descrip TEXT NULL DEFAULT NULL,
 		imagen VARCHAR(950) NULL DEFAULT NULL,
-		created_at DATETIME NULL DEFAULT NULL,
+		created_at DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
 		id_created INT NULL DEFAULT '1',
 		updated_at DATETIME NULL DEFAULT NULL,
 		id_updated INT NULL DEFAULT '0',
@@ -15,12 +15,12 @@
 		id_drop INT NULL DEFAULT '0',
 		status INT NULL DEFAULT '1'
 	);
-	INSERT INTO cursos (nombre) VALUES 
-		('Comuncaion'),
-		('Ingles'),
-		('Religion'),
-		('Arte'),
-		('Ciencia y Ambiente')
+	INSERT INTO cursos (nombre,imagen) VALUES 
+		('Comuncaion','20200628182542Comunicació-estratègica5.jpg'),
+		('Ingles','20200628182500estudiar-ingles-pais-habla-inglesa-mejor-manera-aprender-idioma.jpg'),
+		('Religion','202006281809395.jpg'),
+		('Arte','202006281804041.jpg'),
+		('Ciencia y Ambiente','20200628182759maxresdefault.jpg')
 	;
 	SELECT * FROM cursos WHERE status=1;
 /*-----------------------tabla-contacto---------------------*/
@@ -31,7 +31,7 @@
 		telefono VARCHAR(15) NULL DEFAULT NULL,
 		mensaje TEXT NULL DEFAULT NULL,
 		respuesta TEXT NULL DEFAULT NULL,
-		created_at DATETIME NULL DEFAULT NULL,
+		created_at DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
 		id_created INT NULL DEFAULT '1',
 		updated_at DATETIME NULL DEFAULT NULL,
 		id_updated INT NULL DEFAULT '0',
