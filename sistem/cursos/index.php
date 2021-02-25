@@ -23,6 +23,7 @@
 	?>
 </head>
 <body>
+	<?php include_once($rut.'nav.php'); ?>
 
 	<div class="container">
 		<div class="row pb-5">
@@ -48,7 +49,7 @@
 				<h2>Lista de <?= $pagina; ?></h2>
 			</div>
 			<div class="col-sm-3 text-right">
-				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >Nuevo <?= substr($pagina, 0, -1); ?></button>
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >Nuevo <?= substr($pagina, 0, -1); ?> <i class="fa fa-plus"></i></button>
 			</div>
 		</div>
 

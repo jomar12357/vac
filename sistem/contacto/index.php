@@ -23,6 +23,7 @@
 	?>
 </head>
 <body>
+	<?php include_once($rut.'nav.php'); ?>
 
 	<div class="container">
 		<div class="row pb-5">

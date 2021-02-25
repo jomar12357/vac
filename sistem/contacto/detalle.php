@@ -30,6 +30,7 @@
 	?>
 </head>
 <body>
+	<?php include_once($rut.'nav.php'); ?>
 
 	<div class="container">
 		<div class="row pb-5">
@@ -99,7 +100,7 @@
 				          <div class="form-group">
 						    <a href="./" class="btn btn-secondary">Regresar</a>
 						    <input type="hidden" name="pid" value="<?= base64_encode($pid); ?>">
-						    <button type="submit" name="editar" class="btn btn-primary">Editar</button>
+						    <button type="submit" name="editar" class="btn btn-primary">Editar <i class="fa fa-edit"></i></button>
 				          </div>
 					  </div>
 					</div>
