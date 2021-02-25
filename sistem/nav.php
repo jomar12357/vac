@@ -1,4 +1,3 @@
-
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		    <div class="container-fluid">
@@ -10,6 +9,9 @@
 		        <ul class="navbar-nav mb-2 mb-lg-0 text-right d-flex">
 		          <li class="nav-item">
 		            <a class="nav-link active" aria-current="page" href="<?= URL; ?>">Inicio</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="<?= SIST; ?>">Sistema</a>
 		          </li>
 		          <li class="nav-item">
 		            <a class="nav-link" href="<?= SIST; ?>cursos/">Cursos</a>
