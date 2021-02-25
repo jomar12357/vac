@@ -144,7 +144,7 @@
 <ol>
 	<li>Ingresa a tu Panel de control: C:\xampp\xampp-control.exe.</li>
 	<li>Inicia Apache y Mysql (Star).</li>
-	<li>Importa el script.sql SQL a <a href="http://localhost/phpmyadmin/" target="_blank">Puerto 80 clic aqui</a>, <a href="http://localhost:81/phpmyadmin/" target="_blank">Puerto 81 clic aqui</a> ó <a href="https://localhost/phpmyadmin/">SSL clic aqui</a>.</li>
+	<li>Importa el archivo (script.sql) a <a href="http://localhost/phpmyadmin/" target="_blank">Puerto 80 clic aqui</a>, <a href="http://localhost:81/phpmyadmin/" target="_blank">Puerto 81 clic aqui</a> ó <a href="https://localhost/phpmyadmin/">SSL clic aqui</a>.</li>
 	<li>Ingresa a tu Panel de control: C:\xampp\xampp-control.exe.</li>
 	<li>Detener Apache y Mysql (Stop).</li>
 	<li>Clic en el botón Config.</li>
