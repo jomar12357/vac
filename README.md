@@ -139,6 +139,39 @@
 	</li>
 </ul>
 
+### Pasos de Configuración a XAMPP en el PUERTO 81:
+
+<ol>
+	<li>Ingresa a tu Panel de control: C:\xampp\xampp-control.exe.</li>
+	<li>Inicia Apache y Mysql (Star).</li>
+	<li>Importa el script SQL a <a href="http://localhost/phpmyadmin/" target="_blank">Puerto 80 clic aqui</a>, <a href="http://localhost:81/phpmyadmin/" target="_blank">Puerto 81 clic aqui</a> ó <a href="https://localhost/phpmyadmin/">SSL clic aqui</a>.</li>
+	<li>Ingresa a tu Panel de control: C:\xampp\xampp-control.exe.</li>
+	<li>Detener Apache y Mysql (Stop).</li>
+	<li>Clic en el botón Config.</li>
+	<li>Clic en la Primera Opción: Apache (httpd.conf).</li>
+	<li>Abre la Herramienta Buscar: Presiona Ctrl + B (Blog de Notas) ó Ctrl + F (Sublime Text).</li>
+	<li>Ingresa en el Buscador: 80 y clic en buscar.</li>
+	<li>
+		Resultados:
+		<ol>
+			<li>#Listen 12.34.56.78:81Listen 80</li>
+			<li>Listen 80</li>
+			<li>ServerName localhost:80</li>
+		</ol>
+	</li>
+	<li>
+		Reemplazar por:
+		<ol>
+			<li>#Listen 12.34.56.78:81Listen 81</li>
+			<li>Listen 81</li>
+			<li>ServerName localhost:81</li>
+		</ol>
+	</li>
+	<li>Guarda los Cambios.</li>
+	<li>Inicia Apache y Mysql (Star).</li>
+	<li>Accede a: <a href="http://localhost:81/vac/" target="_blank">http://localhost:81/vac/</a> ó <a href="http://localhost:81/vac/" target="_blank">SSL https://localhost/vac/</a>.</li>
+</ol>
+
 ### Primera Parte del Vídeo Tutorial:
 
 <p>
