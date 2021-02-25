@@ -144,8 +144,8 @@
 <ol>
 	<li>Ingresa a tu Panel de control: C:\xampp\xampp-control.exe.</li>
 	<li>Inicia Apache y Mysql (Star).</li>
-	<li>Importa el archivo (script.sql) a <a href="http://localhost/phpmyadmin/" target="_blank">Puerto 80 clic aqui</a>, <a href="http://localhost:81/phpmyadmin/" target="_blank">Puerto 81 clic aqui</a> ó <a href="https://localhost/phpmyadmin/">SSL clic aqui</a>.</li>
-	<li>Ingresa a tu Panel de control: C:\xampp\xampp-control.exe.</li>
+	<li>Importa el archivo (script.sql) a <a href="http://localhost/phpmyadmin/" target="_blank">Puerto 80 clic aqui</a>, <a href="http://localhost:81/phpmyadmin/" target="_blank">Puerto 81 clic aqui</a></li>
+	<li>Ingresa a tu Panel de control.</li>
 	<li>Detener Apache y Mysql (Stop).</li>
 	<li>Clic en el botón Config.</li>
 	<li>Clic en la Primera Opción: Apache (httpd.conf).</li>
@@ -169,7 +169,52 @@
 	</li>
 	<li>Guarda los Cambios.</li>
 	<li>Regresa a tu Panel de control e Inicia Apache y Mysql (Star).</li>
-	<li>Accede a: <a href="http://localhost:81/vac/" target="_blank">http://localhost:81/vac/</a> ó <a href="http://localhost:81/vac/" target="_blank">SSL https://localhost/vac/</a>.</li>
+	<li>Accede a: <a href="http://localhost:81/vac/" target="_blank">http://localhost:81/vac/</a>.</li>
+</ol>
+
+### Pasos de Configuración a XAMPP para SSL (https):
+
+<ol>
+	<li>Ingresa a tu Panel de control: C:\xampp\xampp-control.exe.</li>
+	<li>Detener Apache y Mysql (Stop).</li>
+	<li>Clic en el botón Config.</li>
+	<li>Clic en la 4 Opción: PHP (php.ini).</li>
+	<li>Abre la Herramienta Buscar: Presiona Ctrl + B (Blog de Notas) ó Ctrl + F (Sublime Text).</li>
+	<li>Ingresa en el Buscador: [ Dynamic Extensions ] ó [ Many DLL files are located in the extensions/ ] y clic en buscar.</li>
+	<li>
+		Resultados:
+		<ol>
+			<li>;extension=openssl</li>
+		</ol>
+	</li>
+	<li>
+		Reemplazar por:
+		<ol>
+			<li>extension=openssl</li>
+		</ol>
+	</li>
+	<li>Guarda los Cambios.</li>
+	<li>Regresa a tu Panel de control e Inicia Apache y Mysql (Star).</li>
+	<li>Ingresa al Archivo: constant.php</li>
+	<li>
+		En las Lineas:
+		<ul>
+			<li>2	define('HTTP', 'http://');</li>
+			<li>3	//define('HTTP', 'https://');</li>
+			<li>8	define('URL', HTTP.'localhost:81/vac/');</li>
+			<li>9	//define('URL', HTTP.'localhost/vac/');</li>
+		</ul>
+	</li>
+	<li>
+		Reemplazar por:
+		<ul>
+			<li>2	//define('HTTP', 'http://');</li>
+			<li>3	define('HTTP', 'https://');</li>
+			<li>8	//define('URL', HTTP.'localhost:81/vac/');</li>
+			<li>9	define('URL', HTTP.'localhost/vac/');</li>
+		</ul>
+	</li>
+	<li>Accede a: <a href="https://localhost/vac/" target="_blank">SSL https://localhost/vac/</a>.</li>
 </ol>
 
 ### Primera Parte del Vídeo Tutorial:

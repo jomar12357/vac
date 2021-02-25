@@ -1,9 +1,12 @@
 <?php
+	define('HTTP', 'http://');
+	//define('HTTP', 'https://');
 	define('TIT', ' | Metedología VAC con PHP');
 	define('DIRMOR', 'MORENOCL/');
 	define('DIRACT', 'ACTIONJF/');
 	define('__DIRIMG__', $_SERVER['DOCUMENT_ROOT']."/vac/img/");
-	define('URL', 'http://localhost:81/vac/');
+	define('URL', HTTP.'localhost:81/vac/');
+	//define('URL', HTTP.'localhost/vac/');
 	define('IMG', URL.'img/');
 	define('SIST', URL.'sistem/');
 	define('XCEL', URL.'excel/');
@@ -15,4 +18,3 @@
 	define('FACE', 'https://www.facebook.com/FrankMartinMA/');
 	define('TWIT', 'https://www.facebook.com/FrankMartinMA/');
 	define('INST', 'https://www.facebook.com/frankmartinmoreno/');
-?>
