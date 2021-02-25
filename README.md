@@ -168,7 +168,7 @@
 		</ol>
 	</li>
 	<li>Guarda los Cambios.</li>
-	<li>Inicia Apache y Mysql (Star).</li>
+	<li>Regresa a tu Panel de control e Inicia Apache y Mysql (Star).</li>
 	<li>Accede a: <a href="http://localhost:81/vac/" target="_blank">http://localhost:81/vac/</a> ó <a href="http://localhost:81/vac/" target="_blank">SSL https://localhost/vac/</a>.</li>
 </ol>
 
