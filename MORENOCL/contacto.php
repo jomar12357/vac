@@ -7,7 +7,7 @@
 		private $table ='contacto';
 		private $action='contacto.php?met=';
 		private $action1='contacto/detalle.php?p=';
-
+		//---------------------
 		function listar($c1){
 			$inf=null;$n=1;$cant=7;
 			$inf.='<thead>';
@@ -24,9 +24,12 @@
 			$inf.='<tbody>';
 				$sql = "SELECT * FROM ".$this->table." WHERE status <> 2;";
 				$res = mysqli_query($c1,$sql) OR $_SESSION['Mysqli_Error'] = (mysqli_error($c1));
+				//$res = sqlsrv_query($c1,$sql) OR $_SESSION['Mysqli_Error'] = (sqlsrv_errors($c1));
 				if ($res) {
 					if ($res->num_rows > 0) {
+					//if (sqlsrv_num_rows($res) > 0) {
 						while ($row = mysqli_fetch_array($res)) {
+						//while ($row = sqlsrv_fetch_array($res)) {
 							$inf.='<tr>';
 								$inf.='<th scope="row">'.$n.'</th>';
 								$inf.='<td>'.$row['nombre'].'</td>';
@@ -62,6 +65,7 @@
 							$n++;
 						}
 						mysqli_free_result($res);//liberar memoria del resultado
+						//sqlsrv_free_stmt($res);//liberar memoria del resultado
 					}else{
 						$inf.='<tr><td colspan="'.$cant.'"><div class="alert alert-warning">No se encontró ningún registro</div></td></tr>';
 					}
@@ -69,7 +73,7 @@
 					$inf.='<tr><td colspan="'.$cant.'"><div class="alert alert-danger">Error: '.$_SESSION['Mysqli_Error'].'</div></td></tr>';
 				}
 			$inf.='</tbody>';
-
+			//-----------------------------
 			mysqli_close($c1);
 			return $inf;
 		}
@@ -225,4 +229,3 @@
 			return $inf;
 		}
 	}
-?>

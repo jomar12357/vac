@@ -15,10 +15,10 @@
 
 	<?php
 		$inf=null;
-
+		//----------------------
 		require_once($rut2.DIRACT.$direc);
 		$inf = index($rut2);
-
+		//----------------------
 		require_once($rut.'0mens.php');
 	?>
 </head>
