@@ -12,7 +12,7 @@
 
 ## Metodología de Programación VAC-PHP:
 
-### Cambios
+### Mejoras
 
 <p>
 	Se acaban de Agregar cambios significativos al código fuente.<br>
@@ -21,7 +21,41 @@
 	<br>
 	Pero en este caso se a pasado a la última versión.
 	<br>
-	Meorando asi las fallas en CURL al insertar información a la Base de Datos.
+	Mejorando asi las fallas en CURL al insertar información a la Base de Datos.
+</p>
+<p>
+	Estos son los cambios que se han colocado: en la Acción
+<code>
+	if (isset($_POST['guardar'])) {//se valida si extiste el nombre del botón dentro del Array $_POST
+		if(isset($_SESSION)){}else{ session_start(); }//si existe el Array $_SESSION no hace nada. Si no existe se inician las SESSIONES
+		require_once($ru0.'constant.php');//requerimos las Constantes
+		//----------------------------------------
+		if (isset($_SESSION['sid'])) {//(Validación) Si existe la Session sel usuario [sid] capturamos la información y la pasamos a la clase
+			require_once($ru0.DIRMOR.$db.'.php');
+			require_once($ru0.DIRMOR.$cl1.'.php');
+			$_db = new $db();
+			$_cl1 = new $cl1();
+			$dt = new stdClass();
+			//----------------------------------------
+			$dt->nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
+			$dt->correo = filter_var($_POST['correo'], FILTER_SANITIZE_EMAIL);
+			$dt->telefono = filter_var($_POST['telefono'], FILTER_SANITIZE_STRING);
+			$dt->mensaje = str_replace("'", '´', $_POST['mensaje']);
+			$dt->fecha = date('Y-m-d H:i:s');
+			//----------------------------------------
+			$url = base64_decode($_POST['url']);
+			//----------------------------------------
+			$_SESSION['stat'] = $_cl1->add($_db->conect01(),$dt);
+			//----------------------------------------
+			$_POST = null;
+			//----------------------------------------
+			header("Location: ".$url);
+			exit();
+		}else{//Si no existe la session del usuario
+			include_once($ru0.'403.shtml');//incluimos el archivo de Error 403.shtml - Prohibido
+		}
+	}
+</code>
 </p>
 
 ### ¿Por qué VAC?
