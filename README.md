@@ -25,7 +25,7 @@
 </p>
 <p>
 	Estos son los cambios que se han colocado: en la Acción
-<code>
+<pre>
 	if (isset($_POST['guardar'])) {//se valida si extiste el nombre del botón dentro del Array $_POST<br>
 		if(isset($_SESSION)){}else{ session_start(); }//si existe el Array $_SESSION no hace nada. Si no existe se inician las SESSIONES<br>
 		require_once($ru0.'constant.php');//requerimos las Constantes<br>
@@ -55,7 +55,7 @@
 			include_once($ru0.'403.shtml');//incluimos el archivo de Error 403.shtml - Prohibido<br>
 		}<br>
 	}<br>
-</code>
+</pre>
 </p>
 
 ### ¿Por qué VAC?
