@@ -157,14 +157,24 @@
 						contacto/ (Carpeta de nuestra Vista: Contacto)
 						<ul>
 							<li>index.php (Vista: Contacto)</li>
-							<li>detalle.php (vista: Contacto Detalle)</li>
+							<li>
+								detalle/ (Carpeta del Detalle del contacto)
+								<ul>
+									<li>index.php (vista: Contacto Detalle)</li>
+								</ul>
+							</li>
 						</ul>
 					</li>
 					<li>
 						cursos/ (Carpeta de nuestra Vista: Curso)
 						<ul>
 							<li>index.php (Vista: Curso)</li>
-							<li>detalle.php (vista: Curso Detalle)</li>
+							<li>
+								detalle/ (Carpeta del Detalle del curso)
+								<ul>
+									<li>index.php (vista: Curso Detalle)</li>
+								</ul>
+							</li>
 						</ul>
 					</li>
 					<li>0code.php (Archivo de configuración. Requerido en todas las vistas)</li>
@@ -294,7 +304,7 @@
 	✔️ Exportar Excel
 	✔️ Uso de DataTable
 	✔️ Agregar Formulario de contacto
-	✔️ Listar Registros (Cursos)
+	✔️ Listar Registros (Contacto)
 	✔️ Agregar seguimiento al formulario de contacto
 	✔️ Activar Registro (Contacto)
 	✔️ Desactivar Registro (Contacto)
