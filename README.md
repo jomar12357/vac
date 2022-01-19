@@ -12,6 +12,18 @@
 
 ## Metodología de Programación VAC-PHP:
 
+### Cambios
+
+<p>
+	Se acaban de Agregar cambios significativos al código fuente.<br>
+	Puede que encuentren el código distinto a los videos ya que los videos<br>
+	está basados en la primera Versión de esta metodología.<br>
+	<br>
+	Pero en este caso se a pasado a la última versión.
+	<br>
+	Meorando asi las fallas en CURL al insertar información a la Base de Datos.
+</p>
+
 ### ¿Por qué VAC?
 
 <ul>
@@ -39,6 +51,7 @@
 ### VAC utiliza:
 
 <ul>
+	<li>Objetos.</li>
 	<li>Constantes.</li>
 	<li>Sessiones.</li>
 	<li>Variables.</li>
