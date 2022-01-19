@@ -31,26 +31,26 @@
 		require_once($ru0.'constant.php');//requerimos las Constantes
 		//----------------------------------------
 		if (isset($_SESSION['sid'])) {//(Validación) Si existe la Session sel usuario [sid] capturamos la información y la pasamos a la clase
-			require_once($ru0.DIRMOR.$db.'.php');
-			require_once($ru0.DIRMOR.$cl1.'.php');
-			$_db = new $db();
-			$_cl1 = new $cl1();
-			$dt = new stdClass();
+			require_once($ru0.DIRMOR.$db.'.php');//requiero mi Clase db
+			require_once($ru0.DIRMOR.$cl1.'.php');//requiero mi Clase contacto
+			$_db = new $db();//instancio mi clase db
+			$_cl1 = new $cl1();//instancio mi clase contacto
+			$dt = new stdClass();//creo un Objeto donde almacenaré las variables
 			//----------------------------------------
-			$dt->nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
-			$dt->correo = filter_var($_POST['correo'], FILTER_SANITIZE_EMAIL);
-			$dt->telefono = filter_var($_POST['telefono'], FILTER_SANITIZE_STRING);
-			$dt->mensaje = str_replace("'", '´', $_POST['mensaje']);
-			$dt->fecha = date('Y-m-d H:i:s');
+			$dt->nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);//El $_POST['nombre'] se almacenará dentro del Objeto $dt->nombre
+			$dt->correo = filter_var($_POST['correo'], FILTER_SANITIZE_EMAIL);//El $_POST['correo'] se almacenará dentro del Objeto $dt->correo
+			$dt->telefono = filter_var($_POST['telefono'], FILTER_SANITIZE_STRING);//El $_POST['telefono'] se almacenará dentro del Objeto $dt->telefono
+			$dt->mensaje = str_replace("'", '´', $_POST['mensaje']);//El $_POST['mensaje'] se almacenará dentro del Objeto $dt->mensaje
+			$dt->fecha = date('Y-m-d H:i:s');//LA fecha y Hora Actual se almacenará dentro del Objeto $dt->fecha
 			//----------------------------------------
-			$url = base64_decode($_POST['url']);
+			$url = base64_decode($_POST['url']);//capturo la URL que fue enviada desde el formulario
 			//----------------------------------------
-			$_SESSION['stat'] = $_cl1->add($_db->conect01(),$dt);
+			$_SESSION['stat'] = $_cl1->add($_db->conect01(),$dt);//
 			//----------------------------------------
-			$_POST = null;
+			$_POST = null;//Limpo el Array $_POST
 			//----------------------------------------
-			header("Location: ".$url);
-			exit();
+			header("Location: ".$url);//redirecciono al usuario a la URL donde estaba anteriormente.
+			exit();//termino la ejecución del Código
 		}else{//Si no existe la session del usuario
 			include_once($ru0.'403.shtml');//incluimos el archivo de Error 403.shtml - Prohibido
 		}
