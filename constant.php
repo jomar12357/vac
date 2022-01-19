@@ -13,7 +13,7 @@
 	define('PDFS', URL.'pdf/');
 	define('ACTI', URL.DIRACT);
 	define('PLUG', URL.'plugins/');
-	define('FMMA', 'https://frankmorenoalburqueque.com/');
+	define('FMMA', 'https://www.frankmorenoalburqueque.com/');
 	define('LOGOF', FMMA.'images/logo.png');
 	define('FACE', 'https://www.facebook.com/FrankMartinMA/');
 	define('TWIT', 'https://www.facebook.com/FrankMartinMA/');

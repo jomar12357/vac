@@ -10,13 +10,17 @@
 <head>
 	<meta charset="UTF-8">
 	<title><?= $pagina.TIT; ?></title>
-	<?php include_once($rut.'1styles.php'); ?>
-
-	<?php
-		$inf=null;
-
+	<?php 
+		include_once($rut.'1styles.php');
+		//-----------------------------------
+		$data = null;$inf=null;
+		//-----------------------------------
 		require_once($rut.DIRACT.$direc);
-		$inf = index($rut);
+		$data = index($rut);
+		//-----------------------------------
+		if (isset($data->inf)) {
+			$inf = $data->inf;
+		}
 	?>
 </head>
 <body>

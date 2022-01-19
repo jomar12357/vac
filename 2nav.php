@@ -25,13 +25,13 @@
 				<nav class="main__menu">
 					<ul class="nav__menu">
 						<li><a href="<?= URL; ?>" class="menu--active">Cursos</a></li>
-						<li><a href="<?= URL; ?>about.html">About</a></li>
+						<!--<li><a href="<?= URL; ?>about.html">About</a></li>
 						<li><a href="<?= URL; ?>gallery.html">Gallery</a></li>
 						<li><a href="<?= URL; ?>blog.html">Blog</a>
 							<ul class="sub__menu">
 								<li><a href="<?= URL; ?>blog-single.html">Blog Single</a></li>
 							</ul>
-						</li>
+						</li>-->
 						<li><a href="<?= URL; ?>contacto/">Contacto</a></li>
 					</ul>
 				</nav>

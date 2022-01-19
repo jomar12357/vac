@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	$rut='./';
+	$rut='../';
 	$pagina='Detalle del Curso';
 	$direc='index.php';
 	require_once($rut.'0code.php');
@@ -10,17 +10,20 @@
 <head>
 	<meta charset="UTF-8">
 	<title><?= $pagina.TIT; ?></title>
-	<?php include_once($rut.'1styles.php'); ?>
-
 	<?php
-		$inf=null;
-
+		include_once($rut.'1styles.php');
+		//---------------------------------
+		$data=null;$inf=null;
+		//---------------------------------
 		require_once($rut.DIRACT.$direc);
-		$inf = detalle($rut,$pid);
-
-		if(isset($_SESSION['nombre'])){ $nombre = $_SESSION['nombre']; unset($_SESSION['nombre']); }else{ $nombre=null; }
-		if(isset($_SESSION['descrip'])){ $descrip = $_SESSION['descrip']; unset($_SESSION['descrip']); }else{ $descrip=null; }
-		if(isset($_SESSION['imagen'])){ $imagen = $_SESSION['imagen']; unset($_SESSION['imagen']); }else{ $imagen=null; }
+		$data = detalle($rut,$pid);
+		//---------------------------------
+		if (isset($data->inf)) {
+			$inf = $data->inf;
+		}else{
+			header("Location: ".$rut);
+			exit();
+		}
 	?>
 </head>
 <body>
@@ -34,14 +37,14 @@
 			<div class="row">
 				<div class="col-lg-4">
 					<div class="about__text">
-						<h3 class="about__title"><?= $nombre; ?></h3>
-						<?= $descrip; ?>
+						<h3 class="about__title"><?= $inf->nombre; ?></h3>
+						<?= $inf->descrip; ?>
 					</div>
 				</div>
 				<div class="col-lg-4">
 					<div class="experience__text">
 						<h3 class="about__title">Imagen:</h3>
-						<img src=" <?= IMG.'cursos/'.$imagen; ?>" alt="<?= $nombre; ?>">
+						<img src=" <?= IMG.'cursos/'.$inf->imagen; ?>" alt="<?= $inf->nombre; ?>">
 					</div>
 				</div>
 				<div class="col-lg-4">
@@ -70,13 +73,10 @@
 		</div>
 	</section>
 	<!-- Hero Section end -->
-
 	<!-- Footer Section -->
 		<?php include_once($rut.'3footer.php'); ?>
 	<!-- Footer Section end -->
-
 	<!--====== Javascripts & Jquery ======-->
 		<?php include_once($rut.'4java.php'); ?>
-
 	</body>
 </html>

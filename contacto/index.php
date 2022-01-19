@@ -25,7 +25,7 @@
 	<section class="contact__page">
 		<div class="contact__warp">
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-4">
 					<h2>Contacto</h2>
 					<div class="contact__social">
 						<a href="<?= FACE; ?>"><i class="fa fa-facebook"></i></a>
@@ -34,11 +34,11 @@
 						<a href="<?= INST; ?>"><i class="fa fa-instagram"></i></a>
 					</div>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-8">
 					<div class="contact__text">
-						<p>Phone: 001-1234-666666</p>
-						<p>Email: hi.colorlib@gmail.com</p>
-						<p>Address: 562 Domenic Corner Suite 613</p>
+						<p>Celular: <a href="https://wa.me/51924741703" target="_blank">+51 924 741 703</a></p>
+						<p>Correo: <a href="mailto:informes@frankmorenoalburqueque.com" target="_blank">informes@frankmorenoalburqueque.com</a></p>
+						<p>Ubicación: Lima Lima Perú</p>
 					</div>
 				</div>
 			</div>
@@ -47,6 +47,8 @@
 				<input type="text" name="correo" placeholder="Correo electrónico" required="required">
 				<input type="text" name="telefono" placeholder="Teléfono" required="required">
 				<textarea placeholder="Message" class="ckeditor" id="ckeditor" name="mensaje" required="required"></textarea>
+		      	<input type="hidden" name="sid" value="<?= base64_encode($sid); ?>">
+		      	<input type="hidden" name="url" value="<?= base64_encode($location); ?>">
 				<button type="submit" name="guardar" class="site-btn">Enviar Mensaje</button>
 			</form>
 		</div>

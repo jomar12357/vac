@@ -1,7 +1,7 @@
 <?php
 	session_start();
-	$rut='../';
-	$rut2='../../';
+	$rut='../../';
+	$rut2='../../../';
 	$pagina='Detalle del Curso';
 	$padre='Curso';
 	$direc='cursos.php';
@@ -12,18 +12,21 @@
 <head>
 	<meta charset="utf-8">
 	<title><?= $pagina.TIT; ?></title>
-	<?php require_once($rut.'1styles.php'); ?>
-
 	<?php
-		$inf=null;
-
+		require_once($rut.'1styles.php');
+		//---------------------------------
+		$data=null;$inf=null;
+		//---------------------------------
 		require_once($rut2.DIRACT.$direc);
-		$inf = detalle($rut2,$pid);
-
-		if(isset($_SESSION['nombre'])){ $nombre = $_SESSION['nombre']; unset($_SESSION['nombre']); }else{ $nombre=null; }
-		if(isset($_SESSION['descrip'])){ $descrip = $_SESSION['descrip']; unset($_SESSION['descrip']); }else{ $descrip=null; }
-		if(isset($_SESSION['imagen'])){ $imagen = $_SESSION['imagen']; unset($_SESSION['imagen']); }else{ $imagen=null; }
-
+		$data = detalle($rut2,$pid);
+		//---------------------------------
+		if (isset($data->inf)) {
+			$inf = $data->inf;
+		}else{
+			header("Location: ../");
+			exit();
+		}
+		//---------------------------------
 		require_once($rut.'0mens.php');
 	?>
 </head>
@@ -39,7 +42,7 @@
 		
 		<div class="row">
 			<div class="col-sm-3 text-left">
-				<a href="./" class="btn btn-secondary">Regresar</a>
+				<a href="../" class="btn btn-secondary">Regresar</a>
 			</div>
 			<div class="col-sm-6 text-center">
 				<h2><?= $pagina; ?></h2>
@@ -63,16 +66,16 @@
 					  <div class="card-body">
 					    <div class="form-group">
 				            <label for="recipient-name" class="col-form-label">Nombre:</label>
-				            <input type="text" class="form-control" name="nombre" value="<?= $nombre; ?>" required="required">
+				            <input type="text" class="form-control" name="nombre" value="<?= $inf->nombre; ?>" required="required">
 				          </div>
 				          <div class="form-group">
 				            <label for="message-text" class="col-form-label">Descripción:</label>
-				            <textarea class="form-control ckeditor" id="ckeditor" name="descrip"><?= $descrip; ?></textarea>
+				            <textarea class="form-control ckeditor" id="ckeditor" name="descrip"><?= $inf->descrip; ?></textarea>
 				          </div>
 				          <div class="form-group">
-				          	<input type="hidden" name="imagen_ant" value="<?= $imagen; ?>">
-				          	<?php if (strlen($imagen) > 5): ?>
-				          		<img  style="max-width: 350px; max-height: 400px;" src="<?= IMG; ?>cursos/<?= $imagen; ?>">
+				          	<input type="hidden" name="imagen_ant" value="<?= $inf->imagen; ?>">
+				          	<?php if (strlen($inf->imagen) > 5): ?>
+				          		<img  style="max-width: 350px; max-height: 400px;" src="<?= IMG; ?>cursos/<?= $inf->imagen; ?>">
 				          	<?php endif ?>				          	
 				          </div>				          
 						  <div class="form-group">
@@ -84,8 +87,10 @@
 						  </div>
 						  <hr>
 				          <div class="form-group">
-						    <a href="./" class="btn btn-secondary">Regresar</a>
 						    <input type="hidden" name="pid" value="<?= base64_encode($pid); ?>">
+		      				<input type="hidden" name="sid" value="<?= base64_encode($sid); ?>">
+		      				<input type="hidden" name="url" value="<?= base64_encode($location); ?>">
+						    <a href="../" class="btn btn-secondary">Regresar</a>
 						    <button type="submit" name="editar" class="btn btn-primary">Editar <i class="fa fa-edit"></i></button>
 				          </div>
 					  </div>

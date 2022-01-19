@@ -11,13 +11,20 @@
 <head>
 	<meta charset="utf-8">
 	<title><?= $pagina.TIT; ?></title>
-	<?php require_once($rut.'1styles.php'); ?>
-
 	<?php
-		$inf=null;
+		require_once($rut.'1styles.php');
+		//----------------------
+		$data=null;$inf=null;
 		//----------------------
 		require_once($rut2.DIRACT.$direc);
-		$inf = index($rut2);
+		$data = index($rut2);
+		//----------------------
+		if (isset($data->inf)) {
+			$inf = $data->inf;
+		}else{
+			header("Location: ".$rut);
+			exit();
+		}
 		//----------------------
 		require_once($rut.'0mens.php');
 	?>
@@ -60,15 +67,13 @@
 		<div class="row pb-5">
 			<div class="col-sm-12">
 				<table id="table1" class="table table-hover">
-					<?php echo $inf; $inf=null; ?>
+					<?= $inf; $inf=null; ?>
 				</table>
 			</div>
 		</div>
 	</div>
-
 	<?php require_once($rut.'2java.php'); ?>
 	<?php require_once($rut.'3toastr.php'); ?>
-
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
 	    <div class="modal-content">
@@ -97,6 +102,8 @@
 				  </div>
 		      </div>
 		      <div class="modal-footer">
+		      	<input type="hidden" name="sid" value="<?= base64_encode($sid); ?>">
+		      	<input type="hidden" name="url" value="<?= base64_encode($location); ?>">
 		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
 		        <button type="submit" name="guardar" class="btn btn-primary">Guardar <?= substr($pagina, 0, -1); ?></button>
 		      </div>
@@ -104,7 +111,6 @@
 	    </div>
 	  </div>
 	</div>
-
     <script>
         function drop(datos){
             var infor=datos.split("||");
@@ -115,12 +121,11 @@
             	$infor[1] = 'Comunicación'		valor 1
             	$infor[2] = ''					valor 2
             */
-
+            //--------------------------------
             $('#dropid').val(infor[0]);
             $('#nombre_curso').html(infor[1]);
         }
     </script>
-
 	<div class="modal fade" id="drop" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
 	    <div class="modal-content">
@@ -137,8 +142,10 @@
 		          </div>
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
 		        <input type="hidden" name="pid" id="dropid">
+		      	<input type="hidden" name="sid" value="<?= base64_encode($sid); ?>">
+		      	<input type="hidden" name="url" value="<?= base64_encode($location); ?>">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
 		        <button type="submit" name="eliminar" class="btn btn-primary">Borrar el <?= substr($pagina, 0, -1); ?></button>
 		      </div>
 	      </form>
