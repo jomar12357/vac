@@ -45,7 +45,8 @@
 			//----------------------------------------
 			$url = base64_decode($_POST['url']);//capturo la URL que fue enviada desde el formulario
 			//----------------------------------------
-			$_SESSION['stat'] = $_cl1->add($_db->conect01(),$dt);//
+			$_SESSION['stat'] = $_cl1->add($_db->conect01(),$dt);
+			//Llamo a la función add() de mi Clase 1 [contacto] y le paso los parámetros: (llamo a la función: conect01() de la Clase[db], $db [mi Objeto con la información del formulario])
 			//----------------------------------------
 			$_POST = null;//Limpo el Array $_POST
 			//----------------------------------------
