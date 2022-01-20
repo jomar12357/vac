@@ -24,7 +24,7 @@
 	Mejorando asi las fallas en CURL al insertar información a la Base de Datos.
 </p>
 <p>
-	Estos son los cambios que se han colocado: en la Acción
+	Estos son los cambios que se han colocado, en la Acción:
 <pre>
 	if (isset($_POST['guardar'])) {//se valida si extiste el nombre del botón dentro del Array $_POST
 		if(isset($_SESSION)){}else{ session_start(); }//si existe el Array $_SESSION no hace nada. Si no existe se inician las SESSIONES
@@ -60,6 +60,36 @@
 		}else{//Si no existe la session del usuario
 			include_once($ru0.'403.shtml');//incluimos el archivo de Error 403.shtml - Prohibido
 		}
+	}
+</pre>
+</p>
+<p>
+	Estos son los cambios que se han colocado, en la Clase:
+<pre>
+	function add($c1,$dt){//la función recibe la cadena de conexión, y el obejto co la finormación
+		$inf=null;//creo una variable que retornará la respuesta a la acción
+		function validarAdd($nombres,$correo,$telefono,$mensaje){//creo una función para validar que los campos obligatorios no estén vacios
+			$er=1;//declaro por defecto la variable $er con valor 1
+			if(is_null($nombres)){ $er=0; }//si el nombre esnulo entonces $er = 0;
+			if(is_null($correo)){ $er=0; }//si el correo esnulo entonces $er = 0;
+			if(is_null($telefono)){ $er=0; }//si el telefono esnulo entonces $er = 0;
+			if(is_null($mensaje)){ $er=0; }//si el mensaje esnulo entonces $er = 0;
+			return $er;//retorno $er
+		}
+		if (validarAdd($dt->nombre, $dt->correo, $dt->telefono, $dt->mensaje) == 1) {//llamo a la función validarAdd(pasando las variables del objeto $dt->[nombre_variable]) se == a {1}
+			$sql="INSERT INTO ".$this->table." (nombre, correo, telefono, mensaje, created_at) VALUES ('".$dt->nombre."', '".$dt->correo."', '".$dt->telefono."', '".$dt->mensaje."', '".$dt->fecha."');";//creo mi sentencia SQL
+			$res = mysqli_query($c1,$sql) OR $_SESSION['Mysqli_Error'] = (mysqli_error($c1));//ejecuto mi Sentencia
+			if ($res) {//si se ejecutó correctamente:
+				$inf='add';
+			}else{//caso contrario:
+				$inf='noadd';
+			}
+		}else{//Caso contrario:
+			$inf = 'null';
+		}
+		//------------------
+		mysqli_close($c1);//Ciero mi Cadena de Conexión
+		return $inf;//retorno $inf a la Acción
 	}
 </pre>
 </p>
