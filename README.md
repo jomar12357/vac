@@ -226,7 +226,7 @@
 			<li>2nav.php (Archivo que contendrá la cabecera de la web. Requerido en todas las vistas)</li>
 			<li>3footer.php (Archivo que contendrá el pie de página de la web. Requerido en todas las vistas)</li>
 			<li>4java.php (Archivo que contendrá los <scritp></scritp> a los JavaScript . Requerido en todas las vistas)</li>
-			<li>*.shtml (Archivos de error personalidaos) <a href="https://github.com/fmorenoadmin/errors_shtml" target="_blank">Los encuentras en este repositorio</a></li>
+			<li>[400-600].shtml (Archivos de error personalidaos) <a href="https://github.com/fmorenoadmin/errors_shtml" target="_blank">Los encuentras en este repositorio</a></li>
 			<li>constant.php (Archivo donde definiremos nuestras constantes . Requerido en todas las vistas)</li>
 			<li>script.sql (Archivo que contendrá las estructuras de nuestras tablas de la base de datos)</li>
 		</ul>
