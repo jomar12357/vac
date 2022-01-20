@@ -24,7 +24,7 @@
 	Mejorando asi las fallas en CURL al insertar información a la Base de Datos.
 </p>
 <p>
-	Estos son los cambios que se han colocado, en la Acción:
+	Estos son los cambios que se han colocado, en la Acción Guardar Registro de Contacto:
 <pre>
 	if (isset($_POST['guardar'])) {//se valida si extiste el nombre del botón dentro del Array $_POST
 		if(isset($_SESSION)){}else{ session_start(); }//si existe el Array $_SESSION no hace nada. Si no existe se inician las SESSIONES
@@ -64,7 +64,7 @@
 </pre>
 </p>
 <p>
-	Estos son los cambios que se han colocado, en la Clase:
+	Estos son los cambios que se han colocado, en la Clase Contacto:
 <pre>
 	function add($c1,$dt){//la función recibe la cadena de conexión, y el obejto co la finormación
 		$inf=null;//creo una variable que retornará la respuesta a la acción
