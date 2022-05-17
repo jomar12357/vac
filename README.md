@@ -27,7 +27,7 @@
 	Estos son los cambios que se han colocado, en la Acción Guardar Registro de Contacto:
 <pre>
 	if (isset($_POST['guardar'])) {//se valida si extiste el nombre del botón dentro del Array $_POST
-		if(isset($_SESSION)){}else{ session_start(); }//si existe el Array $_SESSION no hace nada. Si no existe se inician las SESSIONES
+		if(isset($_SESSION)){}else{ if(isset($_SESSION)){}else{ session_start(); } }//si existe el Array $_SESSION no hace nada. Si no existe se inician las SESSIONES
 		require_once($ru0.'constant.php');//requerimos las Constantes
 		//----------------------------------------
 		if (isset($_SESSION['sid'])) {//(Validación) Si existe la Session sel usuario [sid] capturamos la información y la pasamos a la clase

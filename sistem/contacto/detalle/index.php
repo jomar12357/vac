@@ -1,5 +1,5 @@
 <?php
-	session_start();
+	if(isset($_SESSION)){}else{ session_start(); }
 	$rut='../../';
 	$rut2='../../../';
 	$pagina='Detalle del Contacto';

@@ -1,5 +1,5 @@
 <?php
-	session_start();
+	if(isset($_SESSION)){}else{ session_start(); }
 	$rut='./';
 	$rut2='../';
 	require_once($rut.'0code.php');
