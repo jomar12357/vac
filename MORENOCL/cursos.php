@@ -2,7 +2,7 @@
 	/**
 	 * 
 	 */
-	class cursos
+	class cursos extends DataBase
 	{
 		private $table ='cursos';
 		private $action='cursos.php?met=';
