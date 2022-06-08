@@ -23,6 +23,51 @@
 	<br>
 	Mejorando asi las fallas en CURL al insertar información a la Base de Datos.
 </p>
+
+<p>
+	En La Clase db. Se agregó una función que permite generar la sentencia SQL para los INSERT y UPDATE:
+<pre>
+	function get_sql(
+		$table, //nombre de talba
+		$dt, //array con los datos a insertar. El nombre de las Key debe ser igual al nombre de los campos en la tabla
+		$tipo=1, //Tipo de sentencia: 1 para INSERT / 2 para UPDATE
+		$tid_n=null, //Nombre del campo Primary Key(PK) de la Tabla. Solo usar para UPDATE
+		$pid=null //valor del PK a editar. Solo usar para UPDATE
+	){
+		switch ($tipo) {
+			case 1:
+				$sql = "INSERT INTO ".$table." ( ";
+				//-----------campos----------------
+					foreach ($dt as $key => $value) {
+						$sql .= $key.", ";
+					}
+				//-----------fin-campos------------
+				$sql = substr($sql, 0, -2).") VALUES (";
+				//-----------valores----------------
+					foreach ($dt as $key => $value) {
+						$sql .= "'".$value."', ";
+					}
+				//-----------fin-valores------------
+				$sql = substr($sql, 0, -2);
+				$sql .= " );";
+			break;
+			default:
+				$sql = "UPDATE ".$table." SET ";
+				//-----------campos-valores----------------
+					foreach ($dt as $key => $value) {
+						$sql .= $key."='".$value."', ";
+					}
+				//-----------fin-campos-valores------------
+				$sql = substr($sql, 0, -2);
+				$sql .= " WHERE ".$tid_n."=".$pid.";";
+			break;
+		}
+		//----------------------------------
+		return $sql;
+	}
+</pre>
+</p>
+
 <p>
 	Estos son los cambios que se han colocado, en la Acción Guardar Registro de Contacto:
 <pre>
@@ -228,7 +273,8 @@
 			<li>4java.php (Archivo que contendrá los <scritp></scritp> a los JavaScript . Requerido en todas las vistas)</li>
 			<li>[400-600].shtml (Archivos de error personalizados) <a href="https://github.com/fmorenoadmin/errors_shtml" target="_blank">Los encuentras en este repositorio</a></li>
 			<li>constant.php (Archivo donde definiremos nuestras constantes . Requerido en todas las vistas)</li>
-			<li>script.sql (Archivo que contendrá las estructuras de nuestras tablas de la base de datos)</li>
+			<li>database.sql (Archivo que contendrá las estructuras de nuestras tablas de la base de datos)</li>
+			<li>Seguridad.php (Clase que permite obtener el Navegador y Sistema Operativo del Cliente)</li>
 		</ul>
 	</li>
 </ul>
@@ -238,7 +284,7 @@
 <ol>
 	<li>Ingresa a tu Panel de control: C:\xampp\xampp-control.exe.</li>
 	<li>Inicia Apache y Mysql (Star).</li>
-	<li>Importa el archivo (script.sql) a <a href="http://localhost/phpmyadmin/" target="_blank">Puerto 80 clic aqui</a> ó <a href="http://localhost:81/phpmyadmin/" target="_blank">Puerto 81 clic aqui</a></li>
+	<li>Importa el archivo (database.sql) a <a href="http://localhost/phpmyadmin/" target="_blank">Puerto 80 clic aqui</a> ó <a href="http://localhost:81/phpmyadmin/" target="_blank">Puerto 81 clic aqui</a></li>
 	<li>Ingresa a tu Panel de control.</li>
 	<li>Detener Apache y Mysql (Stop).</li>
 	<li>Clic en el botón Config.</li>
