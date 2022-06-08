@@ -49,6 +49,9 @@
 				<textarea placeholder="Message" class="ckeditor" id="ckeditor" name="mensaje" required="required"></textarea>
 		      	<input type="hidden" name="sid" value="<?= base64_encode($sid); ?>">
 		      	<input type="hidden" name="url" value="<?= base64_encode($location); ?>">
+		      	<input type="hidden" name="ip_cli" value="<?= base64_encode($ip_cli); ?>">
+		      	<input type="hidden" name="nav_cli" value="<?= base64_encode($nav_cli); ?>">
+		      	<input type="hidden" name="sist_cli" value="<?= base64_encode($sist_cli); ?>">
 				<button type="submit" name="guardar" class="site-btn">Enviar Mensaje</button>
 			</form>
 		</div>
@@ -61,11 +64,9 @@
 
 	<!--====== Javascripts & Jquery ======-->
 		<?php include_once($rut.'4java.php'); ?>
-	<?php require_once($rut.'sistem/3toastr.php'); ?>
-
-	</body>
+		<?php require_once($rut.'sistem/3toastr.php'); ?>
 </html>
 <?php
 	if (isset($_SESSION['Mysqli_Error'])) { unset($_SESSION['Mysqli_Error']); }
 	if (isset($_SESSION['stat'])) { unset($_SESSION['stat']); }
-?>
+	if (isset($_SESSION['sql'])) { unset($_SESSION['sql']); }

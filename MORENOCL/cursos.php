@@ -2,7 +2,7 @@
 	/**
 	 * 
 	 */
-	class cursos extends DataBase
+	class cursos extends db
 	{
 		private $table ='cursos';
 		private $action='cursos.php?met=';
@@ -222,71 +222,77 @@
 			return $data;
 		}
 		function add($c1,$dt){
-			$inf=null;
-			function validarAdd($nombres,$imagen){
+			$data = new stdClass(); $sql=null;
+			function validarAdd($dt){
 				$er=1;
-				if(is_null($nombres)){ $er=0; }
-				if(is_null($imagen)){ $er=0; }
+				if(is_null($dt['nombre'])){ $er=0; }
+				if(is_null($dt['imagen'])){ $er=0; }
 				return $er;
 			}
-			if (validarAdd($dt->nombre, $dt->imagen) == 1) {
-				$sql="INSERT INTO ".$this->table." (nombre, descrip, imagen, created_at) VALUES ('".$dt->nombre."', '".$dt->descrip."', '".$dt->imagen."', '".$dt->fecha."');";
+			if (validarAdd($dt) == 1) {
+				$sql = $this->get_sql($this->table, $dt, 1);
 				$res = mysqli_query($c1,$sql) OR $_SESSION['Mysqli_Error'] = (mysqli_error($c1));
 				if ($res) {
-					$inf='add';
+					$data->result = true;
+					$data->inf = 'add';
 				}else{
-					$inf='noadd';
+					$data->result = false;
+					$data->inf = 'noadd';
 				}
 			}else{
-				$inf = 'null';
+				$data->result = false;
+				$data->inf = 'null';
 			}
 			//------------------
+			$data->sql = $sql;
+			//------------------
 			mysqli_close($c1);
-			return $inf;
+			return $data;
 		}
-		function edit($c1,$dt){
-			$inf=null;
-			function validarEdit($pid,$nombres,$imagen){
+		function edit($c1,$dt,$pid){
+			$data = new stdClass(); $sql=null;
+			function validarEdit($pid,$dt){
 				$er=1;
 				if(is_null($pid)){ $er=0; }
 				if($pid <= 0){ $er=0; }
-				if(is_null($nombres)){ $er=0; }
-				if(is_null($imagen)){ $er=0; }
+				if(is_null($dt['nombre'])){ $er=0; }
+				if(is_null($dt['imagen'])){ $er=0; }
 				return $er;
 			}
-			if (validarEdit($dt->pid, $dt->nombre, $dt->imagen) == 1) {
-				$sql="UPDATE ".$this->table." SET nombre='".$dt->nombre."', descrip='".$dt->descrip."', imagen='".$dt->imagen."', updated_at='".$dt->fecha."' WHERE ".$this->tid."=".$dt->pid." ;";
+			if (validarEdit($pid,$dt) == 1) {
+				$sql = $this->get_sql($this->table, $dt, 2, $this->tid, $pid);
 				$res = mysqli_query($c1,$sql) OR $_SESSION['Mysqli_Error'] = (mysqli_error($c1));
 				if ($res) {
-					$inf='edit';
+					$data->result = true;
+					$data->inf='edit';
 				}else{
-					$inf='noedit';
+					$data->result = false;
+					$data->inf='noedit';
 				}
 			}else{
-				$inf = 'null';
+				$data->result = false;
+				$data->inf = 'null';
 			}
 			//------------------
+			$data->sql = $sql;
+			//------------------
 			mysqli_close($c1);
-			return $inf;
+			return $data;
 		}
-		function estado($c1,$dt){
-			$data = new stdClass();
+		function estado($c1,$dt,$pid){
+			$data = new stdClass(); $sql=null;
 			function validarEst($pid){
 				$er=1;
 				if(is_null($pid)){ $er=0; }
 				if($pid <= 0){ $er=0; }
 				return $er;
 			}
-			if (validarEst($dt->pid)==1) {
-				if ($dt->status == 2) {
-					$sql="UPDATE ".$this->table." SET drop_at='".$dt->fecha."', status=".$dt->status." WHERE ".$this->tid."=".$dt->pid." ;";
-				}else{
-					$sql="UPDATE ".$this->table." SET updated_at='".$dt->fecha."', status=".$dt->status." WHERE ".$this->tid."=".$dt->pid." ;";
-				}
+			if (validarEst($pid)==1) {
+				$sql = $this->get_sql($this->table, $dt, 2, $this->tid, $pid);
 				$res=mysqli_query($c1,$sql) or $_SESSION['Mysqli_Error'] = (mysqli_error($c1));
 				if ($res) {
-					$data->result = 1;
-					switch ($data->status) {
+					$data->result = true;
+					switch ($dt['status']) {
 						case 0:
 							$data->inf = 'desact';
 						break;
@@ -298,8 +304,8 @@
 						break;
 					}
 				}else{
-					$data->result = 2;
-					switch ($data->status) {
+					$data->result = false;
+					switch ($dt['status']) {
 						case 0:
 							$data->inf = 'nodesact';
 						break;
@@ -312,9 +318,11 @@
 					}
 				}
 			}else{
-				$data->result = 3;
+				$data->result = false;
 				$data->inf="null";
 			}
+			//------------------
+			$data->sql = $sql;
 			//------------------------------------
 			mysqli_close($c1);
 			return $data;

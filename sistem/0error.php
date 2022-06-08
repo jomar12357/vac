@@ -75,3 +75,14 @@
 					</div>
 				</div>
 		<?php endif ?>
+		<?php if (isset($_SESSION['sql'])): ?>
+				<hr>
+				<div class="row">
+					<div class="col-sm-12 text-center alert alert-info">
+						<?= $_SESSION['sql']; ?>
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+				</div>
+		<?php endif ?>

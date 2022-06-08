@@ -1,44 +1,47 @@
 <?php
 	$ru0='../';
-	$db='db';
-	$cl1='cursos';
-	$dir1='cursos/';
-	$dir2='cursos/detalle/?p=';
+	$cls = array(
+		"dbs"	=>	"db",
+		"cl1"	=>	"cursos",
+	);
+	$di1=$cls['cl1'].'/';
+	$di2=$di1.'detalle/?p=';
 	$destino= $ru0."img/cursos/";
+	$dt = array();
 	//------------------------------
 	function index($rut){
-		global $db, $cl1;
-		require_once($rut.DIRMOR.$db.'.php');
-		require_once($rut.DIRMOR.$cl1.'.php');
-		$_db = new $db();
-		$_cl1 = new $cl1();
+		global $cls;
+		require_once($rut.DIRMOR.$cls['dbs'].'.php');
+		require_once($rut.DIRMOR.$cls['cl1'].'.php');
+		$_dbs = new $cls['dbs']();
+		$_cl1 = new $cls['cl1']();
 		$data = new stdClass();
 		//----------------------------------------
-		$data->inf = $_cl1->listar($_db->conect01());
+		$data->inf = $_cl1->listar($_dbs->conect01());
 		//----------------------------------------
 		return $data;
 	}
 	function exportar($rut,$tip){
-		global $db, $cl1;
-		require_once($rut.DIRMOR.$db.'.php');
-		require_once($rut.DIRMOR.$cl1.'.php');
-		$_db = new $db();
-		$_cl1 = new $cl1();
+		global $cls;
+		require_once($rut.DIRMOR.$cls['dbs'].'.php');
+		require_once($rut.DIRMOR.$cls['cl1'].'.php');
+		$_dbs = new $cls['dbs']();
+		$_cl1 = new $cls['cl1']();
 		$data = new stdClass();
 		//----------------------------------------
-		$data->inf = $_cl1->exportar($_db->conect01(),$tip);
+		$data->inf = $_cl1->exportar($_dbs->conect01(),$tip);
 		//----------------------------------------
 		return $data;
 	}
 	function detalle($rut,$pid){
-		global $db, $cl1;
-		require_once($rut.DIRMOR.$db.'.php');
-		require_once($rut.DIRMOR.$cl1.'.php');
-		$_db = new $db();
-		$_cl1 = new $cl1();
+		global $cls;
+		require_once($rut.DIRMOR.$cls['dbs'].'.php');
+		require_once($rut.DIRMOR.$cls['cl1'].'.php');
+		$_dbs = new $cls['dbs']();
+		$_cl1 = new $cls['cl1']();
 		$data = new stdClass();
 		//----------------------------------------
-		$data->inf = $_cl1->callID($_db->conect01(),$pid);
+		$data->inf = $_cl1->callID($_dbs->conect01(),$pid);
 		//----------------------------------------
 		return $data;
 	}
@@ -47,36 +50,42 @@
 		require_once($ru0.'constant.php');
 		//----------------------------------------
 		if (isset($_SESSION['sid'])) {
-			require_once($ru0.DIRMOR.$db.'.php');
-			require_once($ru0.DIRMOR.$cl1.'.php');
-			$_db = new $db();
-			$_cl1 = new $cl1();
-			$dt = new stdClass();
+			require_once($ru0.DIRMOR.$cls['dbs'].'.php');
+			require_once($ru0.DIRMOR.$cls['cl1'].'.php');
+			$_dbs = new $cls['dbs']();
+			$_cl1 = new $cls['cl1']();
 			//----------------------------------------
-			$dt->nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
-			$dt->descrip = str_replace("'", '´', $_POST['descrip']);
+			$nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
+			$descrip = str_replace("'", '´', $_POST['descrip']);
 			//----------------------------------------
 			if (is_uploaded_file($_FILES["imagen"]["tmp_name"])) {
 				$nombfile=$_FILES["imagen"]["name"];
 				$taman=$_FILES["imagen"]["size"];
 				$type=$_FILES["imagen"]["type"];
-				$dt->imagen=date("YmdHis").str_replace(' ', '_', $nombfile);
+				$imagen=date("YmdHis").str_replace(' ', '_', $nombfile);
 				$sub_file = true;
 			}else{
-				$dt->imagen='user.png';
+				$imagen='user.png';
 				$sub_file = false;
 			}
 			//----------------------------------------
-			$dt->fecha = date('Y-m-d H:i:s');
+			$dt = array(
+				"nombre"	=>	$nombre,
+				"descrip"	=>	$descrip,
+				"imagen"	=>	$imagen,
+				"created_at"	=>	date('Y-m-d H:i:s')
+			);
 			//----------------------------------------
 			$url = base64_decode($_POST['url']);
 			//----------------------------------------
-			$_SESSION['stat'] = $resp = $_cl1->add($_db->conect01(),$dt);
-			if ($resp == 'add') {
+			$resp = $_cl1->add($_dbs->conect01(),$dt);
+			if ($resp->result) {
 				if ($sub_file) {
-					move_uploaded_file($_FILES["imagen"]["tmp_name"], $destino.$dt->imagen);
+					move_uploaded_file($_FILES["imagen"]["tmp_name"], $destino.$imagen);
 				}
 			}
+			$_SESSION['stat'] = $resp->inf;
+			$_SESSION['sql'] = $resp->sql;
 			//----------------------------------------
 			$_POST = null;
 			//----------------------------------------
@@ -91,37 +100,43 @@
 		require_once($ru0.'constant.php');
 		//----------------------------------------
 		if (isset($_SESSION['sid'])) {
-			require_once($ru0.DIRMOR.$db.'.php');
-			require_once($ru0.DIRMOR.$cl1.'.php');
-			$_db = new $db();
-			$_cl1 = new $cl1();
-			$dt = new stdClass();
+			require_once($ru0.DIRMOR.$cls['dbs'].'.php');
+			require_once($ru0.DIRMOR.$cls['cl1'].'.php');
+			$_dbs = new $cls['dbs']();
+			$_cl1 = new $cls['cl1']();
 			//----------------------------------------
-			$dt->pid = base64_decode($_POST['pid']);
-			$dt->nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
-			$dt->descrip = str_replace("'", '´', $_POST['descrip']);
+			$pid = base64_decode($_POST['pid']);
+			$nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
+			$descrip = str_replace("'", '´', $_POST['descrip']);
 			//----------------------------------------
 			if (is_uploaded_file($_FILES["imagen"]["tmp_name"])) {
 				$nombfile=$_FILES["imagen"]["name"];
 				$taman=$_FILES["imagen"]["size"];
 				$type=$_FILES["imagen"]["type"];
-				$dt->imagen=date("YmdHis").str_replace(' ', '_', $nombfile);
+				$imagen=date("YmdHis").str_replace(' ', '_', $nombfile);
 				$sub_file = true;
 			}else{
-				$dt->imagen=$_POST['imagen_ant'];
+				$imagen=$_POST['imagen_ant'];
 				$sub_file = false;
 			}
 			//----------------------------------------
-			$dt->fecha = date('Y-m-d H:i:s');
+			$dt = array(
+				"nombre"	=>	$nombre,
+				"descrip"	=>	$descrip,
+				"imagen"	=>	$imagen,
+				"updated_at"	=>	date('Y-m-d H:i:s')
+			);
 			//----------------------------------------
 			$url = base64_decode($_POST['url']);
 			//----------------------------------------
-			$_SESSION['stat'] = $resp = $_cl1->edit($_db->conect01(),$dt);
-			if ($resp == 'edit') {
+			$resp = $_cl1->edit($_dbs->conect01(),$dt,$pid);
+			if ($resp->result) {
 				if ($sub_file) {
-					move_uploaded_file($_FILES["imagen"]["tmp_name"], $destino.$dt->imagen);
+					move_uploaded_file($_FILES["imagen"]["tmp_name"], $destino.$imagen);
 				}
 			}
+			$_SESSION['stat'] = $resp->inf;
+			$_SESSION['sql'] = $resp->sql;
 			//----------------------------------------
 			$_POST = null;
 			//----------------------------------------
@@ -136,34 +151,25 @@
 		require_once($ru0.'constant.php');
 		//----------------------------------------
 		if (isset($_SESSION['sid'])) {
-			require_once($ru0.DIRMOR.$db.'.php');
-			require_once($ru0.DIRMOR.$cl1.'.php');
-			$_db = new $db();
-			$_cl1 = new $cl1();
-			$dt = new stdClass();
+			require_once($ru0.DIRMOR.$cls['dbs'].'.php');
+			require_once($ru0.DIRMOR.$cls['cl1'].'.php');
+			$_dbs = new $cls['dbs']();
+			$_cl1 = new $cls['cl1']();
 			//----------------------------------------
-			$dt->pid = base64_decode($_REQUEST['p']);
-			$dt->fecha = date('Y-m-d H:i:s');
+			$pid = base64_decode($_REQUEST['p']);
 			//----------------------------------------
-			switch ($_REQUEST['met']) {
-				case 'acti':
-					$dt->status = 1;
-				break;
-				case 'desact':
-					$dt->status = 0;
-				break;
-			}
+			$dt = array(
+				"status"	=>	(($_REQUEST['met'] == 'acti') ?  1 : 0),
+				"updated_at"	=>	date('Y-m-d H:i:s')
+			);
 			//----------------------------------------
-			$resp = $_cl1->estado($_db->conect01(),$dt);
-			if ($resp->result < 3) {
-				$_SESSION['stat'] = $resp->inf;
-			}else{
-				$_SESSION['stat'] = 'noedit';
-			}
+			$resp = $_cl1->estado($_dbs->conect01(),$dt,$pid);
+			$_SESSION['stat'] = $resp->inf;
+			$_SESSION['sql'] = $resp->sql;
 			//----------------------------------------
 			$_REQUEST = null;
 			//----------------------------------------
-			header("Location: ".SIST.$dir1);
+			header("Location: ".SIST.$di1);
 			exit();
 		}else{
 			include_once($ru0.'403.shtml');
@@ -174,24 +180,22 @@
 		require_once($ru0.'constant.php');
 		//----------------------------------------
 		if (isset($_SESSION['sid'])) {
-			require_once($ru0.DIRMOR.$db.'.php');
-			require_once($ru0.DIRMOR.$cl1.'.php');
-			$_db = new $db();
-			$_cl1 = new $cl1();
-			$dt = new stdClass();
+			require_once($ru0.DIRMOR.$cls['dbs'].'.php');
+			require_once($ru0.DIRMOR.$cls['cl1'].'.php');
+			$_dbs = new $cls['dbs']();
+			$_cl1 = new $cls['cl1']();
 			//----------------------------------------
-			$dt->pid = base64_decode($_POST['pid']);
-			$dt->status = 2;
-			$dt->fecha = date('Y-m-d H:i:s');
+			$pid = base64_decode($_POST['pid']);
+			$dt = array(
+				"status"	=>	2,
+				"drop_at"	=>	date('Y-m-d H:i:s')
+			);
 			//----------------------------------------
 			$url = base64_decode($_POST['url']);
 			//----------------------------------------
-			$resp = $_cl1->estado($_db->conect01(),$dt);
-			if ($resp->result < 3) {
-				$_SESSION['stat'] = $resp->inf;
-			}else{
-				$_SESSION['stat'] = 'noedit';
-			}
+			$resp = $_cl1->estado($_dbs->conect01(),$dt,$pid);
+			$_SESSION['stat'] = $resp->inf;
+			$_SESSION['sql'] = $resp->sql;
 			//----------------------------------------
 			$_POST = null;
 			//----------------------------------------

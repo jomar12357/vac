@@ -30,7 +30,9 @@
 		correo VARCHAR(350) NULL DEFAULT NULL,
 		telefono VARCHAR(15) NULL DEFAULT NULL,
 		mensaje TEXT NULL DEFAULT NULL,
-		respuesta TEXT NULL DEFAULT NULL,
+		ip_cli VARCHAR(20) NULL DEFAULT NULL,
+		nav_cli TEXT NULL DEFAULT NULL,
+		sist_cli TEXT NULL DEFAULT NULL,
 		created_at DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
 		id_created INT NULL DEFAULT '1',
 		updated_at DATETIME NULL DEFAULT NULL,
@@ -40,4 +42,18 @@
 		status INT NULL DEFAULT '1'
 	);
 	SELECT * FROM contacto WHERE status=1;
+/*-----------------------tabla-cursos-----------------------*/
+	CREATE TABLE seg_contacto(
+		id_seg INT PRIMARY KEY AUTO_INCREMENT,
+		id INT NULL DEFAULT 1,
+		id_usuario INT NULL DEFAULT 1,
+		respuesta TEXT NULL DEFAULT NULL,
+		created_at DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+		id_created INT NULL DEFAULT '1',
+		updated_at DATETIME NULL DEFAULT NULL,
+		id_updated INT NULL DEFAULT '0',
+		drop_at DATETIME NULL DEFAULT NULL,
+		id_drop INT NULL DEFAULT '0',
+		status INT NULL DEFAULT '1'
+	);
 /*-----------------------tabla-cursos-----------------------*/

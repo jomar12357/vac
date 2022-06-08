@@ -157,4 +157,4 @@
 <?php
 	if (isset($_SESSION['Mysqli_Error'])) { unset($_SESSION['Mysqli_Error']); }
 	if (isset($_SESSION['stat'])) { unset($_SESSION['stat']); }
-?>
+	if (isset($_SESSION['sql'])) { unset($_SESSION['sql']); }
