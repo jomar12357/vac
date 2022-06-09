@@ -28,7 +28,7 @@
 	En La Clase db. Se agregó una función que permite generar la sentencia SQL para los INSERT y UPDATE:
 <pre>
 	function get_sql(
-		$table, //nombre de talba
+		$table, //nombre de tabla
 		$dt, //array con los datos a insertar. El nombre de las Key debe ser igual al nombre de los campos en la tabla
 		$tipo=1, //Tipo de sentencia: 1 para INSERT / 2 para UPDATE
 		$tid_n=null, //Nombre del campo Primary Key(PK) de la Tabla. Solo usar para UPDATE
