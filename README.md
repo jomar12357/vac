@@ -60,8 +60,8 @@ function get_sql(
 			//-----------fin-valores------------
 			$sql = substr($sql, 0, -2);
 			$sql .= " );";
-		break;//GENERAR SENTENCIA UPDATE
-		default:
+		break;
+		default://GENERAR SENTENCIA UPDATE
 			$sql = "UPDATE ".$table." SET ";
 			//-----------campos-valores----------------
 				foreach ($dt as $key => $value) {
