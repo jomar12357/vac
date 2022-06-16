@@ -38,7 +38,7 @@
 			$pid=null //valor del PK a editar. Solo usar para UPDATE
 		){
 			switch ($tipo) {
-				case 1:
+				case 1://GENERAR SENTENCIA INSERT
 					$sql = "INSERT INTO ".$table." ( ";
 					//-----------campos----------------
 						foreach ($dt as $key => $value) {
@@ -54,6 +54,16 @@
 					$sql = substr($sql, 0, -2);
 					$sql .= " );";
 				break;
+				case 3://GENERRAR SENTENCIA PARALLAMAR PROCEDIMIENTOS ALMACENADOS
+					$sql = "CALL ".$table." ( ";
+					//-----------valores----------------
+						foreach ($dt as $key => $value) {
+							$sql .= "'".$value."', ";
+						}
+					//-----------fin-valores------------
+					$sql = substr($sql, 0, -2);
+					$sql .= " );";
+				break;//GENERAR SENTENCIA UPDATE
 				default:
 					$sql = "UPDATE ".$table." SET ";
 					//-----------campos-valores----------------
