@@ -46,7 +46,7 @@
 		return $data;
 	}
 	if (isset($_POST['guardar'])) {
-		if(isset($_SESSION)){}else{ if(isset($_SESSION)){}else{ session_start(); } }
+		if(isset($_SESSION)){}else{ session_start(); }
 		require_once($ru0.'constant.php');
 		//----------------------------------------
 		if (isset($_SESSION['sid'])) {
@@ -96,7 +96,7 @@
 		}
 	}
 	if (isset($_POST['editar'])) {
-		if(isset($_SESSION)){}else{ if(isset($_SESSION)){}else{ session_start(); } }
+		if(isset($_SESSION)){}else{ session_start(); }
 		require_once($ru0.'constant.php');
 		//----------------------------------------
 		if (isset($_SESSION['sid'])) {
@@ -147,7 +147,7 @@
 		}
 	}
 	if (isset($_REQUEST['met'])) {
-		if(isset($_SESSION)){}else{ if(isset($_SESSION)){}else{ session_start(); } }
+		if(isset($_SESSION)){}else{ session_start(); }
 		require_once($ru0.'constant.php');
 		//----------------------------------------
 		if (isset($_SESSION['sid'])) {
@@ -176,7 +176,7 @@
 		}
 	}
 	if (isset($_POST['eliminar'])) {
-		if(isset($_SESSION)){}else{ if(isset($_SESSION)){}else{ session_start(); } }
+		if(isset($_SESSION)){}else{ session_start(); }
 		require_once($ru0.'constant.php');
 		//----------------------------------------
 		if (isset($_SESSION['sid'])) {
