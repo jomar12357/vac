@@ -51,7 +51,7 @@ function get_sql(
 			$sql = substr($sql, 0, -2);
 			$sql .= " );";
 		break;
-		case 3://GENERRAR SENTENCIA PARALLAMAR PROCEDIMIENTOS ALMACENADOS
+		case 3://GENERRAR SENTENCIA PARA LLAMAR PROCEDIMIENTOS ALMACENADOS
 			$sql = "CALL ".$table." ( ";
 			//-----------valores----------------
 				foreach ($dt as $key => $value) {
