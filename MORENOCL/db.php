@@ -31,9 +31,9 @@
 			return($con1);
 		}
 		function get_sql(
-			$table, //nombre de talba
-			$dt, //array con los datos a insertar. El nombre de las Key debe ser igual al nombre de los campos en la tabla
-			$tipo=1, //Tipo de sentencia: 1 para INSERT / 2 para UPDATE
+			$table, //nombre de tabla
+			$dt, //array con los datos. El nombre de las Key debe ser igual al nombre de los campos en la tabla
+			$tipo=1, //Tipo de sentencia: 1 para INSERT / 2 para UPDATE / 3 para CALL
 			$tid_n=null, //Nombre del campo Primary Key(PK) de la Tabla. Solo usar para UPDATE
 			$pid=null //valor del PK a editar. Solo usar para UPDATE
 		){
@@ -54,7 +54,7 @@
 					$sql = substr($sql, 0, -2);
 					$sql .= " );";
 				break;
-				case 3://GENERRAR SENTENCIA PARALLAMAR PROCEDIMIENTOS ALMACENADOS
+				case 3://GENERRAR SENTENCIA PARA LLAMAR PROCEDIMIENTOS ALMACENADOS
 					$sql = "CALL ".$table." ( ";
 					//-----------valores----------------
 						foreach ($dt as $key => $value) {
