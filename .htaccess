@@ -16,14 +16,10 @@ ErrorDocument 414 /error/414.shtml
 ErrorDocument 415 /error/415.shtml
 ErrorDocument 416 /error/416.shtml
 ErrorDocument 417 /error/417.shtml
-ErrorDocument 418 /error/418.shtml
-ErrorDocument 419 /error/419.shtml
-ErrorDocument 420 /error/420.shtml
 ErrorDocument 421 /error/421.shtml
 ErrorDocument 422 /error/422.shtml
 ErrorDocument 423 /error/423.shtml
 ErrorDocument 424 /error/424.shtml
-ErrorDocument 425 /error/425.shtml
 ErrorDocument 500 /error/500.shtml
 ErrorDocument 501 /error/501.shtml
 ErrorDocument 502 /error/502.shtml
@@ -33,4 +29,3 @@ ErrorDocument 505 /error/505.shtml
 ErrorDocument 506 /error/506.shtml
 ErrorDocument 507 /error/507.shtml
 ErrorDocument 510 /error/510.shtml
-ErrorDocument 600 /error/600.shtml
