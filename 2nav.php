@@ -33,6 +33,7 @@
 							</ul>
 						</li>-->
 						<li><a href="<?= URL; ?>contacto/">Contacto</a></li>
+						<li><a href="<?= URL; ?>sistem/">Sistema</a></li>
 					</ul>
 				</nav>
 			</div>

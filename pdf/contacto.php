@@ -5,20 +5,21 @@
 	$direc='contacto.php';
 	require($rut.'constant.php');
 	$inf=null;
-	
+	//-------------------------------------------
 	require_once '../plugins/dompdf/autoload.inc.php';
-	
+	//-------------------------------------------
 	use Dompdf\Dompdf;
-
+	//-------------------------------------------
+	//if (isset($_SESSION['user_id'])) {
 		require_once($rut.DIRACT.$direc);
 		$inf = exportar($rut);
-
+		//-------------------------------------------
 		$paper_size=array(0,0,1080,720);
 		//$paper_size='"letter","landscape"';
 		$html="";
-
+		//-------------------------------------------
 		$html.='<meta charset="utf-8">';
-
+		//-------------------------------------------
 		$html.='<table width="100%" style="vertical-align: middle;">';
 			$html.='<tr>';
 				$html.='<th width="20%">';
@@ -33,10 +34,10 @@
 		$html.='<br>';
 		$html.='<br>';
 	    $html.='<table border="1" width="100%">';
-		    $html.=$inf; $inf=null;
+		    $html.=$inf->inf; $inf->inf=null;
 		$html.='</table>';
 		$html.='<br>';
-		
+		//-------------------------------------------
 		$inf=null;
 		ob_start();
 		$dompdf = new DOMPDF();
@@ -44,6 +45,6 @@
 		$dompdf->load_html($html);
 		$dompdf->render();
 		$dompdf->stream($pagina.date('His').".pdf");
-
+		//-------------------------------------------
 		exit();
-?>
+	//}
