@@ -6,7 +6,7 @@
 	require($rut.'constant.php');
 	$inf=null;
 	//-------------------------------------------
-	//if (isset($_SESSION['user_id'])) {
+	if (isset($_SESSION['sid'])) {
 		require($rut.DIRACT.$direc);
 		$inf = exportar($rut,1);
 		//-------------------------------------------
@@ -25,4 +25,4 @@
 		echo $html;
 		//-------------------------------------------
 		exit();
-	//}
+	}

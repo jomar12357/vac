@@ -10,7 +10,7 @@
 	//-------------------------------------------
 	use Dompdf\Dompdf;
 	//-------------------------------------------
-	//if (isset($_SESSION['user_id'])) {
+	if (isset($_SESSION['sid'])) {
 		require_once($rut.DIRACT.$direc);
 		$inf = exportar($rut,2);
 		//-------------------------------------------
@@ -47,4 +47,4 @@
 		$dompdf->stream($pagina.date('His').".pdf");
 		//-------------------------------------------
 		exit();
-	//}
+	}
