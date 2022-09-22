@@ -35,7 +35,8 @@
 			$dt, //array con los datos. El nombre de las Key debe ser igual al nombre de los campos en la tabla
 			$tipo=1, //Tipo de sentencia: 1 para INSERT / 2 para UPDATE / 3 para CALL
 			$tid_n=null, //Nombre del campo Primary Key(PK) de la Tabla. Solo usar para UPDATE
-			$pid=null //valor del PK a editar. Solo usar para UPDATE
+			$pid=null, //valor del PK a editar. Solo usar para UPDATE
+			$adic=null //campos adicionales en sentencia WHERE del UPDATE
 		){
 			switch ($tipo) {
 				case 1://GENERAR SENTENCIA INSERT
@@ -72,7 +73,13 @@
 						}
 					//-----------fin-campos-valores------------
 					$sql = substr($sql, 0, -2);
-					$sql .= " WHERE ".$tid_n."=".$pid.";";
+					$sql .= " WHERE ";
+					//------------campos-adicionale------------
+						if (!is_null($adic)) {
+							$sql .= $adic." AND ";
+						}
+					//-----------fin-campos-adicionale---------
+					$sql .= $tid_n."=".$pid.";";
 				break;
 			}
 			//----------------------------------
