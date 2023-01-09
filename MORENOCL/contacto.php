@@ -224,54 +224,30 @@
 			mysqli_close($c1);
 			return $data;
 		}
-		function add($c1,$dt){
+		function add($c1,$dt,$json){
 			$data = new stdClass(); $sql=null;
-			function validarAdd($dt){
-				$er=1;
+			//------------------------------
+			$er=1;
+			if ($json->table == 1) {
 				if(is_null($dt['nombre'])){ $er=0; }
 				if(is_null($dt['correo'])){ $er=0; }
 				if(is_null($dt['telefono'])){ $er=0; }
 				if(is_null($dt['mensaje'])){ $er=0; }
-				return $er;
-			}
-			if (validarAdd($dt) == 1) {
-				$sql = $this->get_sql($this->table, $dt, 1);
-				$res = mysqli_query($c1,$sql) OR $_SESSION['Mysqli_Error'] = (mysqli_error($c1));
-				if ($res) {
-					$data->result = true;
-					$data->inf = 'add';
-				}else{
-					$data->result = false;
-					$data->inf = 'noadd';
-				}
 			}else{
-				$data->result = false;
-				$data->inf = 'null';
-			}
-			//------------------
-			$data->sql = $sql;
-			//------------------
-			mysqli_close($c1);
-			return $data;
-		}
-		function addSeg($c1,$dt){
-			$data = new stdClass(); $sql=null;
-			function validarAddSeg($dt){
-				$er=1;
 				if(is_null($dt['id'])){ $er=0; }
 				if($dt['id'] <= 0){ $er=0; }
 				if(is_null($dt['respuesta'])){ $er=0; }
-				return $er;
 			}
-			if (validarAddSeg($dt) == 1) {
-				$sql = $this->get_sql($this->table1, $dt);
+			//------------------------------
+			if ($er == 1) {
+				$sql = $this->get_sql((($json->table==1) ? $this->table : $this->table1), $dt, 1);
 				$res = mysqli_query($c1,$sql) OR $_SESSION['Mysqli_Error'] = (mysqli_error($c1));
 				if ($res) {
 					$data->result = true;
-					$data->inf='add';
+					$data->inf = $json->success;
 				}else{
 					$data->result = false;
-					$data->inf='noadd';
+					$data->inf = $json->danger;
 				}
 			}else{
 				$data->result = false;
@@ -283,64 +259,15 @@
 			mysqli_close($c1);
 			return $data;
 		}
-		function estado($c1,$dt,$pid){
+		function estado($c1,$dt,$json){
 			$data = new stdClass(); $sql=null;
-			function validarEst($pid){
-				$er=1;
-				if(is_null($pid)){ $er=0; }
-				if($pid <= 0){ $er=0; }
-				return $er;
-			}
+			//------------------------------
+			$er=1;
+			if(is_null($json->pid)){ $er=0; }
+			if($json->pid <= 0){ $er=0; }
+			//------------------------------
 			if (validarEst($pid)==1) {
-				$sql = $this->get_sql($this->table, $dt, 2, $this->tid, $pid);
-				$res=mysqli_query($c1,$sql) or $_SESSION['Mysqli_Error'] = (mysqli_error($c1));
-				if ($res) {
-					$data->result = true;
-					switch ($dt['status']) {
-						case 0:
-							$data->inf = 'desact';
-						break;
-						case 1:
-							$data->inf = 'acti';
-						break;
-						default:
-							$data->inf = 'drop';
-						break;
-					}
-				}else{
-					$data->result = false;
-					switch ($dt['status']) {
-						case 0:
-							$data->inf = 'nodesact';
-						break;
-						case 1:
-							$data->inf = 'noacti';
-						break;
-						default:
-							$data->inf = 'nodrop';
-						break;
-					}
-				}
-			}else{
-				$data->result = false;
-				$data->inf="null";
-			}
-			//------------------
-			$data->sql = $sql;
-			//------------------------------------
-			mysqli_close($c1);
-			return $data;
-		}
-		function estado2($c1,$dt,$pid){
-			$data = new stdClass(); $sql=null;
-			function validarEst2($pid){
-				$er=1;
-				if(is_null($pid)){ $er=0; }
-				if($pid <= 0){ $er=0; }
-				return $er;
-			}
-			if (validarEst2($pid)==1) {
-				$sql = $this->get_sql($this->table1, $dt, 2, $this->tid2, $pid);
+				$sql = $this->get_sql((($json->table==1) ? $this->table : $this->table1), $dt, 2, (($json->table==1) ? $this->tid : $this->tid2), $json->pid);
 				$res=mysqli_query($c1,$sql) or $_SESSION['Mysqli_Error'] = (mysqli_error($c1));
 				if ($res) {
 					$data->result = true;

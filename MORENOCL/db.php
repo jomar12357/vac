@@ -9,14 +9,6 @@
 			mysqli_select_db($con1,"vac");
 			return($con1);
 		}
-		function conect02(){//sqlsrv
-			$serverName = "serverName\sqlexpress"; //serverName\instanceName
-			//$serverName = "serverName\sqlexpress, 1542"; //serverName\instanceName, portNumber (por defecto es 1433)
-			//$connectionInfo = array( "Database"=>"dbName");
-			$connectionInfo = array( "Database"=>"dbName", "UID"=>"userName", "PWD"=>"password");
-			$con1 = sqlsrv_connect($serverName, $connectionInfo);
-			return($con1);
-		}
 		function muestra_mysqli(){//muestra_mysqli
 			$con1 = mysqli_connect("HOST","USUARIO","CONTRASEÑA");
 			mysqli_select_db($con1,"BASE DE DATOS");
@@ -28,6 +20,10 @@
 			//$connectionInfo = array( "Database"=>"dbName");
 			$connectionInfo = array( "Database"=>"dbName", "UID"=>"userName", "PWD"=>"password");
 			$con1 = sqlsrv_connect($serverName, $connectionInfo);
+			return($con1);
+		}
+		function muestra_pg(){//muestra_pgsql
+			$con1 = pg_connect("host=127.0.0.1 port=1234 dbname=vac user=admin password=admin");
 			return($con1);
 		}
 		function get_sql(
@@ -79,7 +75,7 @@
 							$sql .= $adic." AND ";
 						}
 					//-----------fin-campos-adicionale---------
-					$sql .= $tid_n."=".$pid.";";
+					$sql .= $tid_n."=".$pid." ;";
 				break;
 			}
 			//----------------------------------

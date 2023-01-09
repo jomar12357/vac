@@ -47,7 +47,7 @@
 	}
 	if (isset($_POST['guardar'])) {
 		if(isset($_SESSION)){}else{ session_start(); }
-		require_once($ru0.'constant.php');
+		require_once($ru0.'config/constant.php');
 		//----------------------------------------
 		if (isset($_SESSION['sid'])) {
 			require_once($ru0.DIRMOR.$cls['dbs'].'.php');
@@ -97,7 +97,7 @@
 	}
 	if (isset($_POST['editar'])) {
 		if(isset($_SESSION)){}else{ session_start(); }
-		require_once($ru0.'constant.php');
+		require_once($ru0.'config/constant.php');
 		//----------------------------------------
 		if (isset($_SESSION['sid'])) {
 			require_once($ru0.DIRMOR.$cls['dbs'].'.php');
@@ -148,7 +148,7 @@
 	}
 	if (isset($_REQUEST['met'])) {
 		if(isset($_SESSION)){}else{ session_start(); }
-		require_once($ru0.'constant.php');
+		require_once($ru0.'config/constant.php');
 		//----------------------------------------
 		if (isset($_SESSION['sid'])) {
 			require_once($ru0.DIRMOR.$cls['dbs'].'.php');
@@ -177,7 +177,7 @@
 	}
 	if (isset($_POST['eliminar'])) {
 		if(isset($_SESSION)){}else{ session_start(); }
-		require_once($ru0.'constant.php');
+		require_once($ru0.'config/constant.php');
 		//----------------------------------------
 		if (isset($_SESSION['sid'])) {
 			require_once($ru0.DIRMOR.$cls['dbs'].'.php');

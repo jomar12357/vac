@@ -1,63 +1,95 @@
-<?php
-	if (isset($_SESSION['Mysqli_Error'])) {
-		?>
+	<?php if(isset($_SESSION['Mysqli_Error'])){ 
+		if (is_array($_SESSION['Mysqli_Error'])) {
+			print_r($_SESSION['Mysqli_Error']);
+		}else{
+			if (strlen($_SESSION['Mysqli_Error']) >= 5){ ?>
 			<script type="text/javascript">
 				toastr.error(`<?= $_SESSION['Mysqli_Error']; ?>`);
 			</script>
-		<?php
-	}
+			<?php } 
+		}
+		unset($_SESSION['Mysqli_Error']); 
+	} ?>
+	<!--TRUE-->
+	<?php if(isset($_SESSION['SMStrue'])){ if (strlen($_SESSION['SMStrue']) >= 5){ ?>
+		<script type="text/javascript">
+			toastr.success(`<?= $_SESSION['SMStrue']; ?>`);
+		</script>
+	<?php } unset($_SESSION['SMStrue']); } ?>
+	<?php if(isset($_SESSION['SMStrue2'])){ if (strlen($_SESSION['SMStrue2']) >= 5){ ?>
+		<script type="text/javascript">
+			toastr.success(`<?= $_SESSION['SMStrue2']; ?>`);
+		</script>
+	<?php } unset($_SESSION['SMStrue2']); } ?>
+	<?php if(isset($_SESSION['SMStrue3'])){ if (strlen($_SESSION['SMStrue3']) >= 5){ ?>
+		<script type="text/javascript">
+			toastr.success(`<?= $_SESSION['SMStrue3']; ?>`);
+		</script>
+	<?php } unset($_SESSION['SMStrue3']); } ?>
+	<?php if(isset($_SESSION['SMStru3'])){ if (strlen($_SESSION['SMStru3']) >= 5){ ?>
+		<script type="text/javascript">
+			toastr.success(`<?= $_SESSION['SMStru3']; ?>`);
+		</script>
+	<?php } unset($_SESSION['SMStru3']); } ?>
+	<!--FLASE-->
+	<?php if(isset($_SESSION['SMSfalse'])){ if (strlen($_SESSION['SMSfalse']) >= 5){ ?>
+		<script type="text/javascript">
+			toastr.error(`<?= $_SESSION['SMSfalse']; ?>`);
+		</script>
+	<?php } unset($_SESSION['SMSfalse']); } ?>
+	<?php if(isset($_SESSION['SMSfalse2'])){ if (strlen($_SESSION['SMSfalse2']) >= 5){ ?>
+		<script type="text/javascript">
+			toastr.error(`<?= $_SESSION['SMSfalse2']; ?>`);
+		</script>
+	<?php } unset($_SESSION['SMSfalse2']); } ?>
+	<?php if(isset($_SESSION['SMSfalse3'])){ if (strlen($_SESSION['SMSfalse3']) >= 5){ ?>
+		<script type="text/javascript">
+			toastr.error(`<?= $_SESSION['SMSfalse3']; ?>`);
+		</script>
+	<?php } unset($_SESSION['SMSfalse3']); } ?>
+	<!--NULL-->
+	<?php if(isset($_SESSION['SMSnull'])){ if (strlen($_SESSION['SMSnull']) >= 5){ ?>
+		<script type="text/javascript">
+			toastr.warning(`<?= $_SESSION['SMSnull']; ?>`);
+		</script>
+	<?php } unset($_SESSION['SMSnull']); } ?>
+	<?php if(isset($_SESSION['SMSnull2'])){ if (strlen($_SESSION['SMSnull2']) >= 5){ ?>
+		<script type="text/javascript">
+			toastr.warning(`<?= $_SESSION['SMSnull2']; ?>`);
+		</script>
+	<?php } unset($_SESSION['SMSnull2']); } ?>
 
-	//true1 y true2
-	if (isset($_SESSION['smstrue1'])) {
-		?>
-			<script type="text/javascript">
-				toastr.success(`<?= $_SESSION['smstrue1']; ?>`);
-			</script>
-		<?php
-		unset($_SESSION['smstrue1']);
-	}
-	if (isset($_SESSION['smstrue2'])) {
-		?>
-			<script type="text/javascript">
-				toastr.success(`<?= $_SESSION['smstrue2']; ?>`);
-			</script>
-		<?php
-		unset($_SESSION['smstrue2']);
-	}
-
-	//false1 y false2
-	if (isset($_SESSION['smsfalse1'])) {
-		?>
-			<script type="text/javascript">
-				toastr.error(`<?= $_SESSION['smsfalse1']; ?>`);
-			</script>
-		<?php
-		unset($_SESSION['smsfalse1']);
-	}
-	if (isset($_SESSION['smsfalse2'])) {
-		?>
-			<script type="text/javascript">
-				toastr.error(`<?= $_SESSION['smsfalse2']; ?>`);
-			</script>
-		<?php
-		unset($_SESSION['smsfalse2']);
-	}
-
-	//null1 y null2
-	if (isset($_SESSION['smsnull1'])) {
-		?>
-			<script type="text/javascript">
-				toastr.warning(`<?= $_SESSION['smsnull1']; ?>`);
-			</script>
-		<?php
-		unset($_SESSION['smsnull1']);
-	}
-	if (isset($_SESSION['smsnull2'])) {
-		?>
-			<script type="text/javascript">
-				toastr.warning(`<?= $_SESSION['smsnull2']; ?>`);
-			</script>
-		<?php
-		unset($_SESSION['smsnull2']);
-	}
-?>
+	<?php if(isset($_SESSION['SMSnull3'])){ if (strlen($_SESSION['SMSnull3']) >= 5){ ?>
+		<script type="text/javascript">
+			toastr.warning(`<?= $_SESSION['SMSnull3']; ?>`);
+		</script>
+	<?php } unset($_SESSION['SMSnull3']); } ?>
+	<!--DG-ERROR-->
+	<?php if(isset($_SESSION['dg_error'])){ if (strlen($_SESSION['dg_error']) >= 5){ ?>
+		<script type="text/javascript">
+			toastr.error(`<?= $_SESSION['dg_error']; ?>`);
+		</script>
+	<?php } unset($_SESSION['dg_error']); } ?>
+	<!--EMAIL-->
+	<?php if(isset($_SESSION['mensjEmail'])){ 
+			if ($_SESSION['mensjEmail']=="send"){
+				?>
+				<script type="text/javascript">
+					toastr.success(`Su correo electrónico fué enviado con éxito.`);
+				</script>
+				<?php
+			}else{
+				?>
+				<script type="text/javascript">
+					toastr.danger(`Lo sentimos no se logró enviar su correo electrónico.`);
+				</script>
+				<?php
+			}
+			unset($_SESSION['mensjEmail']);
+		}
+	?>
+	<?php
+		if (isset($_SESSION['stat'])) { unset($_SESSION['stat']); }
+		if (isset($_SESSION['stat2'])) { unset($_SESSION['stat2']); }
+		if (isset($_SESSION['stat3'])) { unset($_SESSION['stat3']); }
+	?>

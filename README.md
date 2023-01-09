@@ -129,12 +129,29 @@ function get_sql(
 				</ul>
 			</li>
 			<li>
-				contacto/ (Nombre de Carpeta del formulario d eocntacto de la web)
+				config/ (Carpeta donde se guardarán todos los archivos de configuración)
+				<ul>
+					<li>0code.php (Archivo de configuración. Requerido en todas las vistas)</li>
+					<li>1styles.php (Archivo que contendrá los <link /> a estilos CSS . Requerido en todas las vistas)</li>
+					<li>2nav.php (Archivo que contendrá la cabecera de la web. Requerido en todas las vistas)</li>
+					<li>3footer.php (Archivo que contendrá el pie de página de la web. Requerido en todas las vistas)</li>
+					<li>4java.php (Archivo que contendrá los <scritp></scritp> a los JavaScript . Requerido en todas las vistas)</li>
+					<li>constant.php (Archivo donde definiremos nuestras constantes . Requerido en todas las vistas)</li>
+				</ul>
+			</li>
+			<li>
+				contacto/ (Nombre de Carpeta del formulario de contacto de la web)
 				<ul>
 					<li>index.php (vista del formulario de contato)</li>
 				</ul>
 			</li>
 			<li>css/* (Nombre de carpeta que contiene los archivos CSS del Tema de la Web)</li>
+			<li>
+				error/ (Nombre de carpeta que contiene los archivos de errores SHTML)
+				<ul>
+					<li>[400-600].shtml (Archivos de error personalizados) <a href="https://github.com/fmorenoadmin/errors_shtml" target="_blank">Los encuentras en este repositorio</a></li>
+				</ul>
+			</li>
 			<li>
 				excel/ (Nombre de carpeta que contiene los archivos de exportación a EXCEL)
 				<ul>
@@ -205,13 +222,6 @@ function get_sql(
 					<li>3toastr.php (Archivo que contendrá el muestreo de mesajes . Requerido en todas las vistas)</li>
 				</ul>
 			</li>
-			<li>0code.php (Archivo de configuración. Requerido en todas las vistas)</li>
-			<li>1styles.php (Archivo que contendrá los <link /> a estilos CSS . Requerido en todas las vistas)</li>
-			<li>2nav.php (Archivo que contendrá la cabecera de la web. Requerido en todas las vistas)</li>
-			<li>3footer.php (Archivo que contendrá el pie de página de la web. Requerido en todas las vistas)</li>
-			<li>4java.php (Archivo que contendrá los <scritp></scritp> a los JavaScript . Requerido en todas las vistas)</li>
-			<li>[400-600].shtml (Archivos de error personalizados) <a href="https://github.com/fmorenoadmin/errors_shtml" target="_blank">Los encuentras en este repositorio</a></li>
-			<li>constant.php (Archivo donde definiremos nuestras constantes . Requerido en todas las vistas)</li>
 			<li>database.sql (Archivo que contendrá las estructuras de nuestras tablas de la base de datos)</li>
 			<li>Seguridad.php (Clase que permite obtener el Navegador y Sistema Operativo del Cliente)</li>
 		</ul>
