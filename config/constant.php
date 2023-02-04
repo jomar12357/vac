@@ -36,4 +36,4 @@ define('FACE', 'https://www.facebook.com/FrankMartinMA/');
 define('TWIT', 'https://www.facebook.com/FrankMartinMA/');
 define('INST', 'https://www.facebook.com/frankmartinmoreno/');
 //-------------------------------------------
-define('SECRET_KEY', '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');
+define('SECRET_KEY', '');
