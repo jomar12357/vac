@@ -6,11 +6,12 @@ define('TIT', ' | Metedología VAC con PHP');
 //-------------------------------------------
 define('DIRMOR', 'MORENOCL/');
 define('DIRACT', 'ACTIONJF/');
+//-------------------------------------------
 define('__DIRIMG__', $_SERVER['DOCUMENT_ROOT']."/vac/img/");
 define('DIRERR', '/error');
 define('CONF', 'config/');
 //-------------------------------------------
-define('SCHU', '_qas');
+define('SCHU', '_qas');//esquema
 //define('SCHU', '_prd');
 //-------------------------------------------
 if (SCHU == '_qas') {

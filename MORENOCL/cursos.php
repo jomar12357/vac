@@ -223,15 +223,14 @@
 		}
 		function add($c1,$dt){
 			$data = new stdClass(); $sql=null;
-			function validarAdd($dt){
-				$er=1;
-				if(is_null($dt['nombre'])){ $er=0; }
-				if(is_null($dt['imagen'])){ $er=0; }
-				return $er;
-			}
-			if (validarAdd($dt) == 1) {
+			//-------------------------------------
+			$er=1;
+			if(is_null($dt['nombre'])){ $er=0; }
+			if(is_null($dt['imagen'])){ $er=0; }
+			//-------------------------------------
+			if ($er == 1) {
 				$sql = $this->get_sql($this->table, $dt, 1);
-				$res = mysqli_query($c1,$sql) OR $_SESSION['Mysqli_Error'] = (mysqli_error($c1));
+				$res = mysqli_query($c1,$sql) OR $data->error = (mysqli_error($c1));
 				if ($res) {
 					$data->result = true;
 					$data->inf = 'add';
