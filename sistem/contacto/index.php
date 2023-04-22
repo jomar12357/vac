@@ -73,21 +73,6 @@
 	</div>
 	<?php require_once($rut.'2java.php'); ?>
 	<?php require_once($rut.'3toastr.php'); ?>
-    <script>
-        function drop(datos){
-            var infor=datos.split("||");
-            /*
-            Divide la cadena a array por este caracter: ( || )
-            	'MQ==||Comunicación||'			cadena que recibe y la divide dentro de un array de la siguiente manera:
-            	$infor[0] = 'MQ=='				valor 0
-            	$infor[1] = 'Comunicación'		valor 1
-            	$infor[2] = ''					valor 2
-            */
-            //--------------------------------
-            $('#dropid').val(infor[0]);
-            $('#nombre_curso').html(infor[1]);
-        }
-    </script>
 	<div class="modal fade" id="drop" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
 	    <div class="modal-content">
@@ -114,6 +99,21 @@
 	    </div>
 	  </div>
 	</div>
+    <script>
+        function drop(datos){
+            var infor=datos.split("||");
+            /*
+            Divide la cadena a array por este caracter: ( || )
+            	'MQ==||Comunicación||'			cadena que recibe y la divide dentro de un array de la siguiente manera:
+            	$infor[0] = 'MQ=='				valor 0
+            	$infor[1] = 'Comunicación'		valor 1
+            	$infor[2] = ''					valor 2
+            */
+            //--------------------------------
+            $('#dropid').val(infor[0]);
+            $('#nombre_curso').html(atob(infor[1]));
+        }
+    </script>
 </body>
 </html>
 <?php

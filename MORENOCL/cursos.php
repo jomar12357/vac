@@ -20,7 +20,7 @@
 					$inf.='<th>Descripción</th>';
 					$inf.='<th>Creado</th>';
 					$inf.='<th>Gestión</th>';
-				$inf.='</tr>';
+				$inf.='</tr>'
 			$inf.='</thead>';
 			$inf.='<tbody>';
 				$sql = "SELECT * FROM ".$this->table." WHERE status <> 2 ORDER BY ".$this->tid." DESC;";
@@ -29,7 +29,7 @@
 					if ($res->num_rows > 0) {
 						while ($row = mysqli_fetch_array($res)) {
 							$inf.='<tr>';
-								$inf.='<th scope="row">'.$n.'</th>';
+								$inf.='<td scope="row">'.$n.'</td>';
 								$inf.='<td>';
 									if (strlen($row['imagen']) > 5) {
 										$inf.='<img style="max-width: 100px; max-height: 100px;" src="'.IMG.'cursos/'.$row['imagen'].'" />';

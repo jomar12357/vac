@@ -62,7 +62,7 @@
 											$inf.='</a>';
 										break;
 									}
-									$inf.='<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#drop" onclick="drop('."'".base64_encode($row[$this->tid])."||".$row['nombre']."||'".');"><i class="fa fa-trash"></i></button>';
+									$inf.='<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#drop" onclick="drop('."'".base64_encode($row[$this->tid])."||".base64_encode($row['nombre'])."||'".');"><i class="fa fa-trash"></i></button>';
 								$inf.='</td>';
 							$inf.='</tr>';
 
@@ -266,7 +266,7 @@
 			if(is_null($json->pid)){ $er=0; }
 			if($json->pid <= 0){ $er=0; }
 			//------------------------------
-			if (validarEst($pid)==1) {
+			if ($er==1) {
 				$sql = $this->get_sql((($json->table==1) ? $this->table : $this->table1), $dt, 2, (($json->table==1) ? $this->tid : $this->tid2), $json->pid);
 				$res=mysqli_query($c1,$sql) or $_SESSION['Mysqli_Error'] = (mysqli_error($c1));
 				if ($res) {
